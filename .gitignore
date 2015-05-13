@@ -1,0 +1,8 @@
+# build output
+bin/
+
+# Gradle
+.gradle/
+
+# Eclipse
+.settings/
