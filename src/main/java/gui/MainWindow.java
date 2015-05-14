@@ -10,6 +10,7 @@ public class MainWindow extends JFrame
     super();
     this.setSize(800, 600);
     this.setLocationRelativeTo(null);
+    this.setJMenuBar(new MenuBar());
     this.add(new TopPanel(), BorderLayout.NORTH);
     this.add(new RightPanel(), BorderLayout.EAST);
     this.add(new BottomPanel(), BorderLayout.SOUTH);
