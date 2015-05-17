@@ -13,7 +13,7 @@ public class MainWindow extends JFrame
     this.setJMenuBar(new MenuBar());
     this.add(new TopPanel(), BorderLayout.NORTH);
     this.add(new RightPanel(), BorderLayout.EAST);
-    this.add(new BottomPanel(), BorderLayout.SOUTH);
+    this.add(new BottomPanel(800, 600), BorderLayout.SOUTH);
     this.add(new LeftPanel(), BorderLayout.WEST);
     this.add(new CenterPanel(), BorderLayout.CENTER);
     this.setVisible(true);
