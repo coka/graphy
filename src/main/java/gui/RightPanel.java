@@ -3,7 +3,6 @@ package gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.*;
 
 import javax.swing.JToolBar;
@@ -18,9 +17,6 @@ import javax.swing.JPanel;
 
 import javax.swing.SwingConstants;
 import java.net.URL;
-
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
 
 public class RightPanel extends JPanel implements ActionListener
 {	
