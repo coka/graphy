@@ -9,7 +9,15 @@ import javax.swing.JFrame;
 
 public class MainWindow extends JFrame
 {
-  public MainWindow()
+  private static MainWindow instance = null;
+
+  public static MainWindow get_instance()
+  {
+    if (instance == null) { instance = new MainWindow(); }
+    return instance;
+  }
+
+  private MainWindow()
   {
     super("Graphy");
     this.setSize(1000, 600);
@@ -22,11 +30,11 @@ public class MainWindow extends JFrame
     this.add(new CenterPanel(), BorderLayout.CENTER);
     this.setVisible(true);
     this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-    
+
     ImageIcon img = new ImageIcon("images/Logo.png");
     this.setIconImage(img.getImage());
-    
+
     addWindowListener(new GraphyWindowListener());
-    
+
   }
 }
