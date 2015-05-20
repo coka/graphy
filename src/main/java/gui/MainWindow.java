@@ -1,14 +1,18 @@
 package gui;
 
-import java.awt.*;
-import javax.swing.*;
+import gui.window.listener.GraphyWindowListener;
+
+import java.awt.BorderLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 public class MainWindow extends JFrame
 {
   public MainWindow()
   {
     super("Graphy");
-    this.setSize(800, 600);
+    this.setSize(1000, 600);
     this.setLocationRelativeTo(null);
     this.setJMenuBar(new MenuBar());
     this.add(new TopPanel(), BorderLayout.NORTH);
@@ -21,5 +25,8 @@ public class MainWindow extends JFrame
     
     ImageIcon img = new ImageIcon("images/Logo.png");
     this.setIconImage(img.getImage());
+    
+    addWindowListener(new GraphyWindowListener());
+    
   }
 }
