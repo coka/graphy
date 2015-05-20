@@ -92,23 +92,13 @@ public class RightPanel extends JPanel implements ActionListener
   
   protected JButton makeNavigationButton(String imageName, String actionCommand, String toolTipText, String altText) {
 		
-	    //image location
-		String imgLocation = "images/"
-		+ imageName
-		+ ".jpg";
-		URL imageURL = RightPanel.class.getResource(imgLocation);
-		
-		//Create and initialize the button.
-		JButton button = new JButton();
+	  JButton button = new JButton();
+	  
 		button.setActionCommand(actionCommand);
 		button.setToolTipText(toolTipText);
-		button.addActionListener(this);				
-		
-		if (imageURL != null) {                      //image found
-		button.setIcon(new ImageIcon(imageURL, altText));
-		} else {                                     //no image found
-		button.setText(altText);		
-		}
+		button.addActionListener(this);		
+		button.setPreferredSize(new Dimension(30, 30));
+		button.setIcon(new ImageIcon("images/Right Panel/" + imageName + ".jpg", altText));
 
 		return button;
   }

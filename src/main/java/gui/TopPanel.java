@@ -24,6 +24,7 @@ public class TopPanel extends JPanel implements ActionListener
 {
 	//commands for buttons
 	static final private String CLICK = "click";
+	static final private String ABOUT = "about";
 	
   public TopPanel()
   {	  	  
@@ -73,10 +74,10 @@ public class TopPanel extends JPanel implements ActionListener
         TopPanel.add(button);    
     
     //Close/Remove Diagram
-        button = makeNavigationButton("Close/Remove Diagram", CLICK, "Close/Remove Diagram", "btn 6");
+        button = makeNavigationButton("Close Remove Diagram", CLICK, "Close/Remove Diagram", "btn 6");
         TopPanel.add(button);
         
-        TopPanel.add(Box.createHorizontalStrut(8));      
+        TopPanel.add(Box.createHorizontalStrut(13));      
         
         //Edit
         
@@ -116,7 +117,7 @@ public class TopPanel extends JPanel implements ActionListener
         button = makeNavigationButton("Delete Element", CLICK, "Delete Element", "btn 9");
         TopPanel.add(button); 
         
-        TopPanel.add(Box.createHorizontalStrut(8)); 
+        TopPanel.add(Box.createHorizontalStrut(13)); 
         
         //View
         
@@ -128,7 +129,7 @@ public class TopPanel extends JPanel implements ActionListener
         button = makeNavigationButton("Zoom Out", CLICK, "Zoom Out", "btn 11");
         TopPanel.add(button);
         
-        TopPanel.add(Box.createHorizontalStrut(8)); 
+        TopPanel.add(Box.createHorizontalStrut(13)); 
         
         //Window
         
@@ -152,35 +153,24 @@ public class TopPanel extends JPanel implements ActionListener
         button = makeNavigationButton("Next Window", CLICK, "Next Window", "btn 11");
         TopPanel.add(button);
         
-        TopPanel.add(Box.createHorizontalStrut(8)); 
+        TopPanel.add(Box.createHorizontalStrut(13)); 
         
         //Help
         
       //About
-        button = makeNavigationButton("About", CLICK, "About", "btn 11");
+        button = makeNavigationButton("About", ABOUT, "About", "btn 11");
         TopPanel.add(button);
         
  } 
   
   protected JButton makeNavigationButton(String imageName, String actionCommand, String toolTipText, String altText) {
 		
-	    //image location
-		String imgLocation = "images/" + imageName + ".jpg";
-		URL imageURL = RightPanel.class.getResource(imgLocation);
-		
-		//Create and initialize the button.
 		JButton button = new JButton();
 		button.setActionCommand(actionCommand);
 		button.setToolTipText(toolTipText);
 		button.addActionListener(this);		
 		button.setPreferredSize(new Dimension(30, 30));
-		
-		if (imageURL != null) {                      //image found
-		button.setIcon(new ImageIcon(imageURL, altText));
-		} else {                                     //no image found
-		button.setText(altText);	
-		System.err.println("Resource not found: " + imgLocation);
-		}
+		button.setIcon(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
 
 		return button;
   }
@@ -191,8 +181,11 @@ public class TopPanel extends JPanel implements ActionListener
       // handles buttons with set action command 
       if (CLICK.equals(cmd)) { 
     	  JOptionPane.showMessageDialog(null, "Click!");
+      } else if (ABOUT.equals(cmd)) {
+    	  
       }
-  }
+    }
+  
   
   //END
 }
