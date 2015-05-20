@@ -36,7 +36,10 @@ public class MenuBar extends JMenuBar
     // Populate the "File" menu
     for (int i = 0; i < fileItems.length; i++)
     {
-      PlaceholderAction action = new PlaceholderAction(fileItems[i], new Integer(fileMnemonics[i]));
+      ImageIcon icon;
+      if (i == fileItems.length - 1) { icon = new ImageIcon("images/Top Panel/" + "Close Remove Diagram" + ".jpg"); } // dirty
+      else { icon = new ImageIcon("images/Top Panel/" + fileItems[i] + ".jpg"); }
+      PlaceholderAction action = new PlaceholderAction(fileItems[i], icon, new Integer(fileMnemonics[i]));
       JMenuItem item = new JMenuItem(action);
       menuArray[0].add(item);
     }
@@ -44,7 +47,8 @@ public class MenuBar extends JMenuBar
     // Populate the "Edit" menu
     for (int i = 0; i < editItems.length; i++)
     {
-      PlaceholderAction action = new PlaceholderAction(editItems[i], new Integer(editMnemonics[i]));
+      ImageIcon icon = new ImageIcon("images/Top Panel/" + editItems[i] + ".jpg");
+      PlaceholderAction action = new PlaceholderAction(editItems[i], icon, new Integer(editMnemonics[i]));
       JMenuItem item = new JMenuItem(action);
       menuArray[1].add(item);
     }
@@ -52,7 +56,8 @@ public class MenuBar extends JMenuBar
     // Populate the "View" menu
     for (int i = 0; i < viewItems.length; i++)
     {
-      PlaceholderAction action = new PlaceholderAction(viewItems[i], new Integer(viewMnemonics[i]));
+      ImageIcon icon = new ImageIcon("images/Top Panel/" + viewItems[i] + ".jpg");
+      PlaceholderAction action = new PlaceholderAction(viewItems[i], icon, new Integer(viewMnemonics[i]));
       JMenuItem item = new JMenuItem(action);
       menuArray[2].add(item);
     }
@@ -60,7 +65,8 @@ public class MenuBar extends JMenuBar
     // Populate the "Window" menu
     for (int i = 0; i < windowItems.length; i++)
     {
-      PlaceholderAction action = new PlaceholderAction(windowItems[i], new Integer(windowMnemonics[i]));
+      ImageIcon icon = new ImageIcon("images/Top Panel/" + windowItems[i] + ".jpg");
+      PlaceholderAction action = new PlaceholderAction(windowItems[i], icon, new Integer(windowMnemonics[i]));
       JMenuItem item = new JMenuItem(action);
       menuArray[3].add(item);
     }
@@ -68,7 +74,8 @@ public class MenuBar extends JMenuBar
     // Populate the "Help" menu
     for (int i = 0; i < helpItems.length; i++)
     {
-      PlaceholderAction action = new PlaceholderAction(helpItems[i], new Integer(helpMnemonics[i]));
+      ImageIcon icon = new ImageIcon("images/Top Panel/" + helpItems[i] + ".jpg");
+      PlaceholderAction action = new PlaceholderAction(helpItems[i], icon, new Integer(helpMnemonics[i]));
       JMenuItem item = new JMenuItem(action);
       menuArray[4].add(item);
     }
