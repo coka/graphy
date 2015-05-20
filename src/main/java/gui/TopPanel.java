@@ -104,8 +104,8 @@ public class TopPanel extends JPanel implements ActionListener
         button = makeNavigationButton("Rotate Left", CLICK, "Rotate Left", "btn 12");
         TopPanel.add(button); 
         
-    //Rotate Righ
-        button = makeNavigationButton("Rotate Righ", CLICK, "Rotate Righ", "btn 13");
+    //Rotate Right
+        button = makeNavigationButton("Rotate Right", CLICK, "Rotate Right", "btn 13");
         TopPanel.add(button); 
         
     //Rename Diagram
@@ -165,9 +165,7 @@ public class TopPanel extends JPanel implements ActionListener
   protected JButton makeNavigationButton(String imageName, String actionCommand, String toolTipText, String altText) {
 		
 	    //image location
-		String imgLocation = "images/"
-		+ imageName
-		+ ".jpg";
+		String imgLocation = "images/" + imageName + ".jpg";
 		URL imageURL = RightPanel.class.getResource(imgLocation);
 		
 		//Create and initialize the button.
@@ -180,7 +178,8 @@ public class TopPanel extends JPanel implements ActionListener
 		if (imageURL != null) {                      //image found
 		button.setIcon(new ImageIcon(imageURL, altText));
 		} else {                                     //no image found
-		button.setText(altText);		
+		button.setText(altText);	
+		System.err.println("Resource not found: " + imgLocation);
 		}
 
 		return button;
@@ -192,7 +191,7 @@ public class TopPanel extends JPanel implements ActionListener
       // handles buttons with set action command 
       if (CLICK.equals(cmd)) { 
     	  JOptionPane.showMessageDialog(null, "Click!");
-      } 
+      }
   }
   
   //END

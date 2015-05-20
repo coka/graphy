@@ -7,7 +7,7 @@ public class MainWindow extends JFrame
 {
   public MainWindow()
   {
-    super();
+    super("Graphy");
     this.setSize(800, 600);
     this.setLocationRelativeTo(null);
     this.setJMenuBar(new MenuBar());
@@ -18,5 +18,8 @@ public class MainWindow extends JFrame
     this.add(new CenterPanel(), BorderLayout.CENTER);
     this.setVisible(true);
     this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    
+    ImageIcon img = new ImageIcon("images/Logo.png");
+    this.setIconImage(img.getImage());
   }
 }
