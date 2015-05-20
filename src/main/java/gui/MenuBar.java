@@ -2,6 +2,8 @@ package gui;
 
 import javax.swing.*;
 
+import actions.*;
+
 public class MenuBar extends JMenuBar
 {
   private JMenu[] menuArray = new JMenu[5]; // hard-coded number of menus
@@ -14,6 +16,12 @@ public class MenuBar extends JMenuBar
   private String[] viewItems = new String[] {"Zoom In", "Zoom Out"};
   private String[] windowItems = new String[] {"Cascade Windows", "Tile Windows Vertically", "Tile Windows Horizontally", "Previous Window", "Next Window"};
   private String[] helpItems = new String[] {"About"};
+
+  private char[] fileMnemonics = {'N', 'O', 'S', 'I', 'E', 'C'};
+  private char[] editMnemonics = {'U', 'R', 'C', 'Y', 'P', 'L', 'R', 'n', 'D'};
+  private char[] viewMnemonics = {'I', 'O'};
+  private char[] windowMnemonics = {'C', 'V', 'H', 'P', 'N'};
+  private char[] helpMnemonics = {'A'};
 
   public MenuBar()
   {
@@ -28,35 +36,40 @@ public class MenuBar extends JMenuBar
     // Populate the "File" menu
     for (int i = 0; i < fileItems.length; i++)
     {
-      JMenuItem item = new JMenuItem(fileItems[i]);
+      PlaceholderAction action = new PlaceholderAction(fileItems[i], new Integer(fileMnemonics[i]));
+      JMenuItem item = new JMenuItem(action);
       menuArray[0].add(item);
     }
 
     // Populate the "Edit" menu
     for (int i = 0; i < editItems.length; i++)
     {
-      JMenuItem item = new JMenuItem(editItems[i]);
+      PlaceholderAction action = new PlaceholderAction(editItems[i], new Integer(editMnemonics[i]));
+      JMenuItem item = new JMenuItem(action);
       menuArray[1].add(item);
     }
 
     // Populate the "View" menu
     for (int i = 0; i < viewItems.length; i++)
     {
-      JMenuItem item = new JMenuItem(viewItems[i]);
+      PlaceholderAction action = new PlaceholderAction(viewItems[i], new Integer(viewMnemonics[i]));
+      JMenuItem item = new JMenuItem(action);
       menuArray[2].add(item);
     }
 
     // Populate the "Window" menu
     for (int i = 0; i < windowItems.length; i++)
     {
-      JMenuItem item = new JMenuItem(windowItems[i]);
+      PlaceholderAction action = new PlaceholderAction(windowItems[i], new Integer(windowMnemonics[i]));
+      JMenuItem item = new JMenuItem(action);
       menuArray[3].add(item);
     }
 
     // Populate the "Help" menu
     for (int i = 0; i < helpItems.length; i++)
     {
-      JMenuItem item = new JMenuItem(helpItems[i]);
+      PlaceholderAction action = new PlaceholderAction(helpItems[i], new Integer(helpMnemonics[i]));
+      JMenuItem item = new JMenuItem(action);
       menuArray[4].add(item);
     }
 
