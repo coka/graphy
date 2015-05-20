@@ -6,3 +6,6 @@ bin/
 
 # Eclipse
 .settings/
+
+# icons
+images/
