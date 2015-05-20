@@ -7,6 +7,7 @@ public class MenuBar extends JMenuBar
   private JMenu[] menuArray = new JMenu[5]; // hard-coded number of menus
 
   private String[] menus = new String[] {"File", "Edit", "View", "Window", "Help"};
+  private char[] menuMnemonics = {'F', 'E', 'V', 'W', 'H'};
 
   private String[] fileItems = new String[] {"New Diagram", "Open", "Save", "Import Diagram", "Export Diagram", "Close/Remove Diagram"};
   private String[] editItems = new String[] {"Undo", "Redo", "Cut", "Copy", "Paste", "Rotate Left", "Rotate Right", "Rename Diagram", "Delete Element"};
@@ -20,6 +21,7 @@ public class MenuBar extends JMenuBar
     for (int i = 0; i < menus.length; i++)
     {
       JMenu menu = new JMenu(menus[i]);
+      menu.setMnemonic(menuMnemonics[i]);
       menuArray[i] = menu;
     }
 
