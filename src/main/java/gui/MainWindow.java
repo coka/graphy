@@ -4,8 +4,7 @@ import gui.window.listener.GraphyWindowListener;
 
 import java.awt.BorderLayout;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class MainWindow extends JFrame
 {
@@ -19,7 +18,16 @@ public class MainWindow extends JFrame
 
   private MainWindow()
   {
-    super("Graphy");
+    super();
+
+    try
+    {
+      UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+      SwingUtilities.updateComponentTreeUI(this);
+    }
+    catch (Exception e) { e.printStackTrace(); }
+
+    this.setTitle("Graphy");
     this.setSize(1000, 600);
     this.setLocationRelativeTo(null);
     this.setJMenuBar(new MenuBar());
