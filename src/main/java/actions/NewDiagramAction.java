@@ -17,9 +17,6 @@ public class NewDiagramAction extends AbstractAction
 
   public void actionPerformed(ActionEvent e)
   {
-    MainWindow instance = MainWindow.get_instance();
-    Diagram diagram = instance.centerPanel.create_diagram();
-    instance.centerPanel.add(diagram);
-    instance.centerPanel.moveToFront(diagram);
+    MainWindow.get_instance().centerPanel.create_diagram();
   }
 }

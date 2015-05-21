@@ -1,8 +1,8 @@
 package gui;
 
+import java.util.ArrayList;
 import java.awt.Graphics;
 import java.awt.Image;
-
 import javax.swing.*;
 
 public class CenterPanel extends JDesktopPane
@@ -27,10 +27,11 @@ public class CenterPanel extends JDesktopPane
     super();
   }
 
-  public Diagram create_diagram()
+  public void create_diagram()
   {
     Diagram diagram = new Diagram(diagramCount * xOffset, diagramCount * yOffset);
+    this.add(diagram);
+    this.moveToFront(diagram);
     this.diagramCount++;
-    return diagram;
   }
 }
