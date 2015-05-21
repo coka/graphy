@@ -77,8 +77,33 @@ public class MenuBar extends JMenuBar
     for (int i = 0; i < windowItems.length; i++)
     {
       ImageIcon icon = new ImageIcon("images/Top Panel/" + windowItems[i] + ".jpg");
-      PlaceholderAction action = new PlaceholderAction(windowItems[i], icon, new Integer(windowMnemonics[i]));
-      JMenuItem item = new JMenuItem(action);
+      JMenuItem item;
+      if (windowItems[i] == "Cascade Windows")
+      {
+        CascadeWindowsAction action = new CascadeWindowsAction(icon);
+        item = new JMenuItem(action);
+        KeyStroke keyStroke = KeyStroke.getKeyStroke("control alt C");
+        item.setAccelerator(keyStroke);
+      }
+      else if (windowItems[i] == "Tile Windows Vertically")
+      {
+        TileWindowsVerticallyAction action = new TileWindowsVerticallyAction(icon);
+        item = new JMenuItem(action);
+        KeyStroke keyStroke = KeyStroke.getKeyStroke("control alt V");
+        item.setAccelerator(keyStroke);
+      }
+      else if (windowItems[i] == "Tile Windows Horizontally")
+      {
+        TileWindowsHorizontallyAction action = new TileWindowsHorizontallyAction(icon);
+        item = new JMenuItem(action);
+        KeyStroke keyStroke = KeyStroke.getKeyStroke("control alt H");
+        item.setAccelerator(keyStroke);
+      }
+      else
+      {
+        PlaceholderAction action = new PlaceholderAction(windowItems[i], icon, new Integer(windowMnemonics[i]));
+        item = new JMenuItem(action);
+      }
       menuArray[3].add(item);
     }
 

@@ -1,8 +1,7 @@
 package gui;
 
 import java.util.ArrayList;
-import java.awt.Graphics;
-import java.awt.Image;
+import java.awt.*;
 import javax.swing.*;
 
 public class CenterPanel extends JDesktopPane
@@ -33,5 +32,40 @@ public class CenterPanel extends JDesktopPane
     this.add(diagram);
     this.moveToFront(diagram);
     this.diagramCount++;
+  }
+
+  public void cascade_diagrams()
+  {
+    JInternalFrame[] frames = this.getAllFrames();
+    int numberOfFrames = frames.length;
+    for (int i = 0; i < numberOfFrames; i++)
+    {
+      frames[i].setSize(400, 400);
+      frames[i].setLocation(i * xOffset, i * yOffset);
+    }
+  }
+
+  public void tile_diagrams_vertically()
+  {
+    JInternalFrame[] frames = this.getAllFrames();
+    int numberOfFrames = frames.length;
+    Dimension panelSize = this.getSize();
+    for (int i = 0; i < numberOfFrames; i++)
+    {
+      frames[i].setSize(panelSize.width / numberOfFrames, panelSize.height);
+      frames[i].setLocation(frames[i].getWidth() * i, 0);
+    }
+  }
+
+  public void tile_diagrams_horizontally()
+  {
+    JInternalFrame[] frames = this.getAllFrames();
+    int numberOfFrames = frames.length;
+    Dimension panelSize = this.getSize();
+    for (int i = 0; i < numberOfFrames; i++)
+    {
+      frames[i].setSize(panelSize.width, panelSize.height / numberOfFrames);
+      frames[i].setLocation(0, frames[i].getHeight() * i);
+    }
   }
 }
