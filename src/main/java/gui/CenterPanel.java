@@ -21,19 +21,13 @@ public class CenterPanel extends JDesktopPane
       super.paintComponent(g);
       g.drawImage(newimage, 0, 0, getWidth(), getHeight(), this);
   }
-  
+
   public CenterPanel()
   {
     super();
-    for (int i = 0; i < 2; i++)
-    {
-      Diagram diagram = this.create_diagram();
-      this.add(diagram);
-      diagram.moveToFront();
-    }
   }
 
-  private Diagram create_diagram()
+  public Diagram create_diagram()
   {
     Diagram diagram = new Diagram(diagramCount * xOffset, diagramCount * yOffset);
     this.diagramCount++;

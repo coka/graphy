@@ -39,9 +39,20 @@ public class MenuBar extends JMenuBar
       ImageIcon icon;
       if (i == fileItems.length - 1) { icon = new ImageIcon("images/Top Panel/" + "Close Remove Diagram" + ".jpg"); } // dirty
       else { icon = new ImageIcon("images/Top Panel/" + fileItems[i] + ".jpg"); }
-      PlaceholderAction action = new PlaceholderAction(fileItems[i], icon, new Integer(fileMnemonics[i]));
-      JMenuItem item = new JMenuItem(action);
-      menuArray[0].add(item);
+      if (i == 0)
+      {
+        NewDiagramAction action = new NewDiagramAction(icon);
+        JMenuItem item = new JMenuItem(action);
+        KeyStroke keyStroke = KeyStroke.getKeyStroke("control N");
+        item.setAccelerator(keyStroke);
+        menuArray[0].add(item);
+      }
+      else
+      {
+        PlaceholderAction action = new PlaceholderAction(fileItems[i], icon, new Integer(fileMnemonics[i]));
+        JMenuItem item = new JMenuItem(action);
+        menuArray[0].add(item);
+      }
     }
 
     // Populate the "Edit" menu

@@ -9,6 +9,7 @@ import javax.swing.*;
 public class MainWindow extends JFrame
 {
   private static MainWindow instance = null;
+  public CenterPanel centerPanel = new CenterPanel();
 
   public static MainWindow get_instance()
   {
@@ -35,7 +36,7 @@ public class MainWindow extends JFrame
     this.add(new RightPanel(), BorderLayout.EAST);
     this.add(new BottomPanel(800, 600), BorderLayout.SOUTH);
     this.add(new LeftPanel(), BorderLayout.WEST);
-    this.add(new CenterPanel(), BorderLayout.CENTER);
+    this.add(this.centerPanel, BorderLayout.CENTER);
     this.setVisible(true);
     this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
