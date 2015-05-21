@@ -3,6 +3,7 @@ package gui;
 import graphy.about.GraphyAbout;
 
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -12,8 +13,10 @@ import javax.swing.JInternalFrame;
 
 public class CenterPanel extends JDesktopPane
 {
-  private static int diagramCount = 0;
+  private static final Frame CenterPanel = null;
+private static int diagramCount = 0;
   private int xOffset = 24, yOffset = 24;
+  private int xAbout = 40, yAbout = 40;
 
   ImageIcon icon = new ImageIcon("images/Background.jpg");
   Image image = icon.getImage();
@@ -34,10 +37,9 @@ public class CenterPanel extends JDesktopPane
   
   public void create_about()
   {
-	  GraphyAbout graphyAbout = new GraphyAbout(true);
+	  GraphyAbout graphyAbout = new GraphyAbout(CenterPanel, true);
 	  this.add(graphyAbout);	  
-	  this.moveToFront(graphyAbout);
-	  graphyAbout.setLocation(null);
+	  this.moveToFront(graphyAbout);		  
   }
 
   public void create_diagram()

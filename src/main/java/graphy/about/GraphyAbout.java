@@ -15,28 +15,27 @@ import javax.swing.JTextArea;
 
 public class GraphyAbout extends JDialog{
 	
-	public GraphyAbout(/*Frame parent, String title,*/ boolean modal){
-		super(/*parent, title, modal*/);
+	public GraphyAbout(Frame parent, boolean modal){
+		super();
 		setTitle("Graphy About");
 		setVisible(true);
 		
 		setSize(600,400);
-		//setLocationRelativeTo(parent);
-		setLocation(null);
+		setLocationRelativeTo(parent);		
 		
 		JLabel label = new JLabel(new ImageIcon("images/authors.jpg"));
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(label);
 		
 		JTextArea textArea=new JTextArea();
-		textArea.append("Autori: Bojan Čoka i Siniša Pejin\n");
-		textArea.append("Broj Indeksa: AI10/2011 i AI4/2012\n");
-		textArea.append("E-mail: bcoka@uns.ac.rs i sinisapejin@gmail.comm\n");
+		textArea.append("Autori: Bojan Čoka & Siniša Pejin\n");
+		textArea.append("Broj Indeksa: AI10/2011 & AI4/2012\n");
+		textArea.append("E-mail: bcoka@uns.ac.rs & sinisapejin@gmail.comm\n");		
 		textArea.setLineWrap(true);
-		add(textArea,BorderLayout.CENTER);
+		add(textArea,BorderLayout.NORTH);
 		textArea.setEditable(false);
-		add(label,BorderLayout.SOUTH);
-		textArea.setBackground(Color.lightGray);
+		add(label,BorderLayout.CENTER);
+		textArea.setBackground(Color.WHITE);
 		setResizable(false);
 		
 		//close button
