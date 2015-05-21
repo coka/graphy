@@ -166,9 +166,32 @@ public class TopPanel extends JPanel
  }
 
   protected JButton makeNavigationButton(String imageName, String actionCommand, String toolTipText, String altText) {
-
-		PlaceholderAction action = new PlaceholderAction(imageName, new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
-    JButton button = new JButton(action);
+    JButton button;
+    if (imageName == "New Diagram")
+    {
+      NewDiagramAction action = new NewDiagramAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+      button = new JButton(action);
+    }
+    else if (imageName == "Cascade Windows")
+    {
+      CascadeWindowsAction action = new CascadeWindowsAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+      button = new JButton(action);
+    }
+    else if (imageName == "Tile Windows Vertically")
+    {
+      TileWindowsVerticallyAction action = new TileWindowsVerticallyAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+      button = new JButton(action);
+    }
+    else if (imageName == "Tile Windows Horizontally")
+    {
+      TileWindowsHorizontallyAction action = new TileWindowsHorizontallyAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+      button = new JButton(action);
+    }
+    else
+    {
+      PlaceholderAction action = new PlaceholderAction(imageName, new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+      button = new JButton(action);
+    }
     button.setText("");
 		button.setToolTipText(toolTipText);
 		button.setPreferredSize(new Dimension(30, 30));
