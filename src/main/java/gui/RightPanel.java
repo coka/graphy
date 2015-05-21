@@ -16,6 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import javax.swing.SwingConstants;
+
+import actions.PlaceholderAction;
+
 import java.net.URL;
 
 public class RightPanel extends JPanel implements ActionListener
@@ -92,13 +95,11 @@ public class RightPanel extends JPanel implements ActionListener
   
   protected JButton makeNavigationButton(String imageName, String actionCommand, String toolTipText, String altText) {
 		
-	  JButton button = new JButton();
-	  
-		button.setActionCommand(actionCommand);
+	  PlaceholderAction action = new PlaceholderAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg", altText));
+	  JButton button = new JButton(action);
+	  button.setText("");
 		button.setToolTipText(toolTipText);
-		button.addActionListener(this);		
 		button.setPreferredSize(new Dimension(30, 30));
-		button.setIcon(new ImageIcon("images/Right Panel/" + imageName + ".jpg", altText));
 
 		return button;
   }
