@@ -1,26 +1,21 @@
 package gui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.*;
-
-import javax.swing.JToolBar;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
-import java.awt.BorderLayout;
-
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JToolBar;
 
-import javax.swing.SwingConstants;
-import java.net.URL;
-
-import actions.*;
+import actions.CascadeWindowsAction;
+import actions.NewDiagramAction;
+import actions.NewGraphyAboutAction;
+import actions.PlaceholderAction;
+import actions.TileWindowsHorizontallyAction;
+import actions.TileWindowsVerticallyAction;
 
 public class TopPanel extends JPanel
 {
@@ -185,6 +180,11 @@ public class TopPanel extends JPanel
     else if (imageName == "Tile Windows Horizontally")
     {
       TileWindowsHorizontallyAction action = new TileWindowsHorizontallyAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+      button = new JButton(action);
+    }
+    else if (imageName == "About")
+    {    	
+      NewGraphyAboutAction action = new NewGraphyAboutAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
       button = new JButton(action);
     }
     else

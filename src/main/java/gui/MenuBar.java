@@ -111,8 +111,10 @@ public class MenuBar extends JMenuBar
     for (int i = 0; i < helpItems.length; i++)
     {
       ImageIcon icon = new ImageIcon("images/Top Panel/" + helpItems[i] + ".jpg");
-      PlaceholderAction action = new PlaceholderAction(helpItems[i], icon, new Integer(helpMnemonics[i]));
+      NewGraphyAboutAction action = new NewGraphyAboutAction(icon);    
+      KeyStroke keyStroke = KeyStroke.getKeyStroke("control A");
       JMenuItem item = new JMenuItem(action);
+      item.setAccelerator(keyStroke);      
       menuArray[4].add(item);
     }
 

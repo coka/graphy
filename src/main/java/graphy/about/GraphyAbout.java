@@ -15,13 +15,14 @@ import javax.swing.JTextArea;
 
 public class GraphyAbout extends JDialog{
 	
-	public GraphyAbout(Frame parent, String title, boolean modal){
-		super(parent, title, modal);
+	public GraphyAbout(/*Frame parent, String title,*/ boolean modal){
+		super(/*parent, title, modal*/);
 		setTitle("Graphy About");
-		setVisible(false);
+		setVisible(true);
 		
-		setSize(700,500);
-		setLocationRelativeTo(parent);	
+		setSize(600,400);
+		//setLocationRelativeTo(parent);
+		setLocation(null);
 		
 		JLabel label = new JLabel(new ImageIcon("images/authors.jpg"));
 		getContentPane().setLayout(new BorderLayout());
@@ -29,7 +30,7 @@ public class GraphyAbout extends JDialog{
 		
 		JTextArea textArea=new JTextArea();
 		textArea.append("Autori: Bojan Čoka i Siniša Pejin\n");
-		textArea.append("Broj Indeksa: AI??/2011 i AI4/2012\n");
+		textArea.append("Broj Indeksa: AI10/2011 i AI4/2012\n");
 		textArea.append("E-mail: bcoka@uns.ac.rs i sinisapejin@gmail.comm\n");
 		textArea.setLineWrap(true);
 		add(textArea,BorderLayout.CENTER);
@@ -48,6 +49,9 @@ public class GraphyAbout extends JDialog{
 		getContentPane().add(buttonClose, BorderLayout.PAGE_END);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setVisible(true);
+		
+		ImageIcon img = new ImageIcon("images/Logo.png");
+	    this.setIconImage(img.getImage());
 		
 	}
 	

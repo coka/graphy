@@ -1,8 +1,14 @@
 package gui;
 
-import java.util.ArrayList;
-import java.awt.*;
-import javax.swing.*;
+import graphy.about.GraphyAbout;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 
 public class CenterPanel extends JDesktopPane
 {
@@ -24,6 +30,14 @@ public class CenterPanel extends JDesktopPane
   public CenterPanel()
   {
     super();
+  }
+  
+  public void create_about()
+  {
+	  GraphyAbout graphyAbout = new GraphyAbout(true);
+	  this.add(graphyAbout);	  
+	  this.moveToFront(graphyAbout);
+	  graphyAbout.setLocation(null);
   }
 
   public void create_diagram()
