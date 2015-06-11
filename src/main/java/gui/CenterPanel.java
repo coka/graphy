@@ -14,7 +14,7 @@ import javax.swing.JInternalFrame;
 public class CenterPanel extends JDesktopPane
 {
   private static final Frame CenterPanel = null;
-private static int diagramCount = 0;
+  private static int diagramCount = 0;
   private int xOffset = 24, yOffset = 24;
   private int xAbout = 40, yAbout = 40;
 

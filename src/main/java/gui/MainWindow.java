@@ -9,7 +9,7 @@ import javax.swing.*;
 public class MainWindow extends JFrame
 {
   private static MainWindow instance = null;
-  public CenterPanel centerPanel = new CenterPanel();
+  public static CenterPanel centerPanel = new CenterPanel();
 
   public static MainWindow get_instance()
   {

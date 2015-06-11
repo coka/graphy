@@ -20,5 +20,5 @@ public class NewGraphyAboutAction extends AbstractAction
   public void actionPerformed(ActionEvent e)
   {
     MainWindow.get_instance().centerPanel.create_about();
-  }
+ }
 }

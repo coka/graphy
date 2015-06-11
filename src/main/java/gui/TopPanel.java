@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
+import actions.ButtonNext;
+import actions.ButtonPrevious;
 import actions.CascadeWindowsAction;
 import actions.NewDiagramAction;
 import actions.NewGraphyAboutAction;
@@ -171,7 +173,7 @@ public class TopPanel extends JPanel
     {
       CascadeWindowsAction action = new CascadeWindowsAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
       button = new JButton(action);
-    }
+    }    
     else if (imageName == "Tile Windows Vertically")
     {
       TileWindowsVerticallyAction action = new TileWindowsVerticallyAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
@@ -181,6 +183,16 @@ public class TopPanel extends JPanel
     {
       TileWindowsHorizontallyAction action = new TileWindowsHorizontallyAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
       button = new JButton(action);
+    }
+    else if (imageName == "Previous Window")
+    {
+    	ButtonPrevious action = new ButtonPrevious(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+        button = new JButton(action);
+    }
+    else if (imageName == "Next Window")
+    {
+    	ButtonNext action = new ButtonNext(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+        button = new JButton(action);
     }
     else if (imageName == "About")
     {    	
