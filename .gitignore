@@ -7,5 +7,11 @@ bin/
 # Eclipse
 .settings/
 
+# IntelliJ IDEA
+out/
+*.iml
+*.ipr
+*.iws
+
 # icons
 images/
