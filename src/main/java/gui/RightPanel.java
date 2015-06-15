@@ -48,47 +48,47 @@ public class RightPanel extends JPanel implements ActionListener
 	  RightPanel.add(Box.createVerticalStrut(10));
 	  
 	//first button
-       button = makeNavigationButton("Button 1", CLICK, "Button 1", "btn 1");     
+       button = makeNavigationButton("Circle", CLICK, "Circle", "btn 1");     
        RightPanel.add(button);      
        RightPanel.add(Box.createVerticalStrut(10));
 	 
 	//second button
-       button = makeNavigationButton("Button 2", CLICK, "Button 2", "btn 2");
+       button = makeNavigationButton("Rectangle", CLICK, "Rectangle", "btn 2");
        RightPanel.add(button);    
 	   RightPanel.add(Box.createVerticalStrut(10));
  	 
   	//third button
-        button = makeNavigationButton("Button 3", CLICK, "Button 3", "btn 3");
+        button = makeNavigationButton("Star", CLICK, "Star", "btn 3");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));
         
     //fourth button
-        button = makeNavigationButton("Button 4", CLICK, "Button 4", "btn 4");
+        button = makeNavigationButton("Triangle", CLICK, "Triangle", "btn 4");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10)); 
         
     //fifth button
-        button = makeNavigationButton("Button 5", CLICK, "Button 5", "btn 5");
+        button = makeNavigationButton("Color Picker", CLICK, "Color Picker", "btn 5");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10)); 
     
     //sixth button
-        button = makeNavigationButton("Button 6", CLICK, "Button 6", "btn 6");
+        button = makeNavigationButton("Circle Colored", CLICK, "Circle Colored", "btn 6");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));  
         
     //seventh button
-        button = makeNavigationButton("Button 7", CLICK, "Button 7", "btn 7");
+        button = makeNavigationButton("Rectangle Colored", CLICK, "Rectangle Colored", "btn 7");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10)); 
         
     //eight button
-        button = makeNavigationButton("Button 8", CLICK, "Button 8", "btn 8");
+        button = makeNavigationButton("Star Colored", CLICK, "Star Colored", "btn 8");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10)); 
         
     //ninth button
-        button = makeNavigationButton("Button 9", CLICK, "Button 9", "btn 9");
+        button = makeNavigationButton("Triangle Colored", CLICK, "Triangle Colored", "btn 9");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10)); 
  } 
