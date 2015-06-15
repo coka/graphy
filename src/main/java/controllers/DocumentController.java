@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -28,10 +29,27 @@ public class DocumentController
       @Override
       public void mouseClicked(MouseEvent e)
       {
-        if (stateManager.get_currentState() instanceof RectangleState)
+        if (e.getButton() == MouseEvent.BUTTON1)
         {
-          RectangleShape rectangle = new RectangleShape(new Vec2f(e.getX(), e.getY()), Color.RED, Color.GREEN, 100.0f);
-          view.get_context().add_shape(rectangle);
+          if (stateManager.get_currentState() instanceof RectangleState)
+          {
+            RectangleShape rectangle = new RectangleShape(new Vec2f(e.getX(), e.getY()), Color.RED, Color.GREEN, 100.0f);
+            view.get_context().add_shape(rectangle);
+          }
+          else if (stateManager.get_currentState() instanceof SelectState)
+          {
+            boolean missedEverything = true;
+            for (int i = 0; i < view.get_context().get_shapes().size(); i++)
+            {
+              if (view.get_context().get_shapes().get(i).get_shape().contains(e.getX(), e.getY()))
+              {
+                if (missedEverything) { missedEverything = false; }
+                view.get_context().clear_selection();
+                view.get_context().set_selected_at(i);
+              }
+            }
+            if (missedEverything) { view.get_context().clear_selection(); }
+          }
         }
       }
     });
@@ -40,4 +58,5 @@ public class DocumentController
   public DocumentView get_view() { return this.view; }
 
   public void set_rectangleState() { this.stateManager.set_rectangleState(); }
+  public void set_selectState() { this.stateManager.set_selectState(); }
 }

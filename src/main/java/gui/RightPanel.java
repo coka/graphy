@@ -19,6 +19,7 @@ import javax.swing.SwingConstants;
 
 import actions.PlaceholderAction;
 import actions.RectangleStateAction;
+import actions.SelectStateAction;
 
 import java.net.URL;
 
@@ -92,6 +93,11 @@ public class RightPanel extends JPanel implements ActionListener
         button = makeNavigationButton("Triangle Colored", CLICK, "Triangle Colored", "btn 9");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));
+
+    //tenth button
+        button = selectStateButton("Select", CLICK, "Select", "btn 10");
+        RightPanel.add(button);
+        RightPanel.add(Box.createVerticalStrut(10));
  }
 
   protected JButton makeNavigationButton(String imageName, String actionCommand, String toolTipText, String altText) {
@@ -108,6 +114,17 @@ public class RightPanel extends JPanel implements ActionListener
   protected JButton rectangleStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
     RectangleStateAction action = new RectangleStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+    JButton button = new JButton(action);
+    button.setText("");
+    button.setToolTipText(toolTipText);
+    button.setPreferredSize(new Dimension(30, 30));
+
+    return button;
+  }
+
+  protected JButton selectStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+    SelectStateAction action = new SelectStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
     JButton button = new JButton(action);
     button.setText("");
     button.setToolTipText(toolTipText);

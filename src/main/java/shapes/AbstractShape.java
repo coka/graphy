@@ -10,6 +10,7 @@ public abstract class AbstractShape
   private Vec2f position;
   private Color stroke  ;
   private Color fill    ;
+  private boolean isSelected = false;
 
   private Shape shape = new GeneralPath();
 
@@ -32,7 +33,10 @@ public abstract class AbstractShape
   public Color  get_fill    () { return this.fill    ; }
   public Shape  get_shape   () { return this.shape   ; }
 
+  public void set_selected(boolean flag) { this.isSelected = flag; }
+
   public abstract void construct_shape();
+  public void draw_handles(Graphics2D context) {}
 
   public void draw(Graphics2D context)
   {
@@ -43,5 +47,6 @@ public abstract class AbstractShape
     }
     context.setColor(this.stroke);
     context.draw(this.shape);
+    if (this.isSelected) { this.draw_handles(context); }
   }
 }
