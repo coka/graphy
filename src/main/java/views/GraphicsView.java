@@ -38,6 +38,12 @@ public class GraphicsView extends JComponent
     this.repaint();
   }
 
+  public void toggle_selected_at(int index)
+  {
+    this.shapes.get(index).toggle_selected();
+    this.repaint();
+  }
+
   public void clear_selection()
   {
     for (int i = 0; i < this.shapes.size(); i++) { this.shapes.get(i).set_selected(false); }

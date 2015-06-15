@@ -34,6 +34,7 @@ public abstract class AbstractShape
   public Shape  get_shape   () { return this.shape   ; }
 
   public void set_selected(boolean flag) { this.isSelected = flag; }
+  public void toggle_selected() { this.isSelected = !this.isSelected; }
 
   public abstract void construct_shape();
   public void draw_handles(Graphics2D context) {}
