@@ -1,6 +1,7 @@
 package views;
 
-import graphy.about.GraphyAbout;
+import graphy.extra.windows.DiagramRename;
+import graphy.extra.windows.GraphyAbout;
 
 import java.awt.*;
 import javax.swing.*;
@@ -25,6 +26,12 @@ public class WorkspaceView extends JDesktopPane
 	  GraphyAbout graphyAbout = new GraphyAbout(CenterPanel, true);
 	  this.add(graphyAbout);	  
 	  this.moveToFront(graphyAbout);		  
+  }
+  
+  public void rename_diagram()
+  {
+	  this.add(diagramRename);	  
+	  this.moveToFront(diagramRename);		  
   }
 
   public void tile_diagrams_vertically()

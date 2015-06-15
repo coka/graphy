@@ -1,4 +1,4 @@
-package graphy.about;
+package graphy.extra.windows;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

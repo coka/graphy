@@ -1,4 +1,4 @@
-import graphy.about.GraphyAbout;
+import graphy.extra.windows.GraphyAbout;
 import gui.MainWindow;
 
 public class Main

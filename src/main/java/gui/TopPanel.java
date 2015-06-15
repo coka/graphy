@@ -13,6 +13,7 @@ import javax.swing.JToolBar;
 import actions.ButtonNext;
 import actions.ButtonPrevious;
 import actions.CascadeWindowsAction;
+import actions.DiagramRenameAction;
 import actions.NewDiagramAction;
 import actions.NewGraphyAboutAction;
 import actions.PlaceholderAction;
@@ -197,6 +198,11 @@ public class TopPanel extends JPanel
     else if (imageName == "About")
     {    	
       NewGraphyAboutAction action = new NewGraphyAboutAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+      button = new JButton(action);
+    }
+    else if (imageName == "Rename Diagram")
+    {    	
+      DiagramRenameAction action = new DiagramRenameAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
       button = new JButton(action);
     }
     else
