@@ -18,10 +18,16 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import actions.PlaceholderAction;
+
 import actions.RectangleStateAction;
 import actions.TriangleStateAction;
 import actions.StarStateAction;
 import actions.HexagonStateAction;
+
+import actions.OutlineRectangleStateAction;
+import actions.OutlineTriangleStateAction;
+import actions.OutlineStarStateAction;
+import actions.OutlineHexagonStateAction;
 
 import java.net.URL;
 
@@ -52,22 +58,22 @@ public class RightPanel extends JPanel implements ActionListener
 	  RightPanel.add(Box.createVerticalStrut(10));
 
 	//first button
-       button = makeNavigationButton("Hexagon", CLICK, "Hexagon", "btn 1");
+       button = outlineHexagonStateButton("Hexagon", CLICK, "Hexagon", "btn 1");
        RightPanel.add(button);
        RightPanel.add(Box.createVerticalStrut(10));
 
 	//second button
-       button = makeNavigationButton("Rectangle", CLICK, "Rectangle", "btn 2");
+       button = outlineRectangleStateButton("Rectangle", CLICK, "Rectangle", "btn 2");
        RightPanel.add(button);
 	   RightPanel.add(Box.createVerticalStrut(10));
 
   	//third button
-        button = makeNavigationButton("Star", CLICK, "Star", "btn 3");
+        button = outlineStarStateButton("Star", CLICK, "Star", "btn 3");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));
 
     //fourth button
-        button = makeNavigationButton("Triangle", CLICK, "Triangle", "btn 4");
+        button = outlineTriangleStateButton("Triangle", CLICK, "Triangle", "btn 4");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));
 
@@ -119,6 +125,17 @@ public class RightPanel extends JPanel implements ActionListener
     return button;
   }
   
+  protected JButton outlineRectangleStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+	    OutlineRectangleStateAction action = new OutlineRectangleStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+	    JButton button = new JButton(action);
+	    button.setText("");
+	    button.setToolTipText(toolTipText);
+	    button.setPreferredSize(new Dimension(30, 30));
+
+	    return button;
+	  }
+  
   protected JButton triangleStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
 	    TriangleStateAction action = new TriangleStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
@@ -129,6 +146,17 @@ public class RightPanel extends JPanel implements ActionListener
 
 	    return button;
   }
+  
+  protected JButton outlineTriangleStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+	    OutlineTriangleStateAction action = new OutlineTriangleStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+	    JButton button = new JButton(action);
+	    button.setText("");
+	    button.setToolTipText(toolTipText);
+	    button.setPreferredSize(new Dimension(30, 30));
+
+	    return button;
+}
   
   protected JButton starStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
@@ -141,9 +169,31 @@ public class RightPanel extends JPanel implements ActionListener
 	    return button;
 }
   
+  protected JButton outlineStarStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+	    OutlineStarStateAction action = new OutlineStarStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+	    JButton button = new JButton(action);
+	    button.setText("");
+	    button.setToolTipText(toolTipText);
+	    button.setPreferredSize(new Dimension(30, 30));
+
+	    return button;
+}
+  
   protected JButton hexagonStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
 	    HexagonStateAction action = new HexagonStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+	    JButton button = new JButton(action);
+	    button.setText("");
+	    button.setToolTipText(toolTipText);
+	    button.setPreferredSize(new Dimension(30, 30));
+
+	    return button;
+}
+  
+  protected JButton outlineHexagonStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+	    OutlineHexagonStateAction action = new OutlineHexagonStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
 	    JButton button = new JButton(action);
 	    button.setText("");
 	    button.setToolTipText(toolTipText);
