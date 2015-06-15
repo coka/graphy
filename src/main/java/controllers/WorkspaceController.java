@@ -3,6 +3,7 @@ package controllers;
 import javax.swing.*;
 
 import models.*;
+import controllers.*;
 import views.*;
 
 public class WorkspaceController
@@ -21,7 +22,8 @@ public class WorkspaceController
     int xOffset = this.model.get_xOffset();
     int yOffset = this.model.get_yOffset();
     int diagramCount = this.model.get_diagramCount();
-    DocumentView diagram = new DocumentView(diagramCount * xOffset, diagramCount * yOffset);
+    DocumentController document = new DocumentController(new DocumentView(diagramCount * xOffset, diagramCount * yOffset));
+    DocumentView diagram = document.get_view();
     this.view.add(diagram);
     this.view.moveToFront(diagram);
     this.view.setSelectedFrame(diagram);
