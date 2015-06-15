@@ -17,6 +17,6 @@ public class NewDiagramAction extends AbstractAction
 
   public void actionPerformed(ActionEvent e)
   {
-    MainWindow.get_instance().centerPanel.create_diagram();
+    MainWindow.get_instance().workspaceController.create_diagram();
   }
 }

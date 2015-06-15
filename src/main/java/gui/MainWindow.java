@@ -2,14 +2,21 @@ package gui;
 
 import gui.window.listener.GraphyWindowListener;
 
+
 import java.awt.BorderLayout;
 
 import javax.swing.*;
 
+import models.*;
+import views.*;
+import controllers.*;
+
 public class MainWindow extends JFrame
 {
   private static MainWindow instance = null;
-  public static CenterPanel centerPanel = new CenterPanel();
+  public static WorkspaceView centerPanel = new WorkspaceView();
+  public WorkspaceModel workspaceModel = new WorkspaceModel();
+  public WorkspaceController workspaceController = new WorkspaceController(workspaceModel, centerPanel);
 
   public static MainWindow get_instance()
   {

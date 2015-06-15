@@ -17,6 +17,6 @@ public class CascadeWindowsAction extends AbstractAction
 
   public void actionPerformed(ActionEvent e)
   {
-    MainWindow.get_instance().centerPanel.cascade_diagrams();
+    MainWindow.get_instance().workspaceController.cascade_diagrams();
   }
 }
