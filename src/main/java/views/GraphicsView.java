@@ -44,6 +44,19 @@ public class GraphicsView extends JComponent
     this.repaint();
   }
 
+  public void delete_selected()
+  {
+    for (int i = 0; i < this.shapes.size(); i++)
+    {
+      if (this.shapes.get(i).get_isSelected())
+      {
+        this.shapes.remove(i);
+        i--;
+      }
+    }
+    this.repaint();
+  }
+
   public void clear_selection()
   {
     for (int i = 0; i < this.shapes.size(); i++) { this.shapes.get(i).set_selected(false); }

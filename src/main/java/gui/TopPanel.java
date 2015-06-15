@@ -10,14 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
-import actions.ButtonNext;
-import actions.ButtonPrevious;
-import actions.CascadeWindowsAction;
-import actions.NewDiagramAction;
-import actions.NewGraphyAboutAction;
-import actions.PlaceholderAction;
-import actions.TileWindowsHorizontallyAction;
-import actions.TileWindowsVerticallyAction;
+import actions.*;
 
 public class TopPanel extends JPanel
 {
@@ -167,6 +160,11 @@ public class TopPanel extends JPanel
     if (imageName == "New Diagram")
     {
       NewDiagramAction action = new NewDiagramAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+      button = new JButton(action);
+    }
+    else if (imageName == "Delete Element")
+    {
+      DeleteElementAction action = new DeleteElementAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
       button = new JButton(action);
     }
     else if (imageName == "Cascade Windows")

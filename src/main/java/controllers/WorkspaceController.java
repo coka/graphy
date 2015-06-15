@@ -20,6 +20,7 @@ public class WorkspaceController
   }
 
   public WorkspaceModel get_model() { return this.model; }
+  public WorkspaceView get_view() { return this.view; }
 
   public void create_diagram()
   {

@@ -32,6 +32,7 @@ public abstract class AbstractShape
   public Color  get_stroke  () { return this.stroke  ; }
   public Color  get_fill    () { return this.fill    ; }
   public Shape  get_shape   () { return this.shape   ; }
+  public boolean get_isSelected() { return this.isSelected; }
 
   public void set_selected(boolean flag) { this.isSelected = flag; }
   public void toggle_selected() { this.isSelected = !this.isSelected; }
