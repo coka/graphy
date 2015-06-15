@@ -3,6 +3,7 @@ package controllers;
 import javax.swing.*;
 
 import models.*;
+import controllers.*;
 import views.*;
 
 public class WorkspaceController
@@ -10,21 +11,27 @@ public class WorkspaceController
   private WorkspaceModel model;
   private WorkspaceView view;
 
+  private int activeIndex;
+
   public WorkspaceController(WorkspaceModel model, WorkspaceView view)
   {
     this.model = model;
     this.view = view;
   }
 
+  public WorkspaceModel get_model() { return this.model; }
+
   public void create_diagram()
   {
-    int xOffset = this.model.get_xOffset();
-    int yOffset = this.model.get_yOffset();
-    int diagramCount = this.model.get_diagramCount();
-    DocumentView diagram = new DocumentView(diagramCount * xOffset, diagramCount * yOffset);
-    this.view.add(diagram);
-    this.view.moveToFront(diagram);
-    this.view.setSelectedFrame(diagram);
+    int offset = 24 * this.model.get_documents().size();
+    DocumentController document = new DocumentController(new DocumentModel(), new DocumentView());
+    document.get_view().setLocation(offset, offset);
+    this.model.get_documents().add(document);
+    this.activeIndex = this.model.get_documents().size() - 1;
+    DocumentView newView = this.model.get_documents().get(activeIndex).get_view();
+    this.view.add(newView);
+    this.view.moveToFront(newView);
+    this.view.setSelectedFrame(newView);
     this.model.increment_diagramCount();
   }
 

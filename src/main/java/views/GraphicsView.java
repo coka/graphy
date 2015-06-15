@@ -1,5 +1,6 @@
 package views;
 
+import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 
@@ -8,19 +9,24 @@ import helpers.*;
 
 public class GraphicsView extends JComponent
 {
+  private ArrayList<AbstractShape> shapes = new ArrayList<AbstractShape>();
+
   public GraphicsView() { super(); }
 
+  @Override
   public void paint(Graphics g)
   {
     Graphics2D g2 = (Graphics2D)g;
 
-    RectangleShape shape = new RectangleShape(new Vec2f(), Color.RED, Color.GREEN, 100.0f);
-    shape.draw(g2);
-    
-    TriangleShape triangle = new TriangleShape(new Vec2f(), Color.BLACK, Color.WHITE, 90.0f);
-    triangle.draw(g2);
-    
-    StarShape star = new StarShape(new Vec2f(), Color.YELLOW, Color.BLACK, 80.0f);
-    star.draw(g2);
+    for (int i = 0; i < this.shapes.size(); i++)
+    {
+      this.shapes.get(i).draw(g2);
+    }
+  }
+
+  public void add_shape(AbstractShape shape)
+  {
+    this.shapes.add(shape);
+    this.repaint();
   }
 }
