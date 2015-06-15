@@ -5,6 +5,7 @@ import java.awt.event.*;
 
 import models.*;
 import views.*;
+import states.*;
 import shapes.*;
 import helpers.*;
 
@@ -12,6 +13,7 @@ public class DocumentController
 {
   private DocumentView view;
   private DocumentModel model;
+  private DocumentStateManager stateManager = new DocumentStateManager(this);
 
   public DocumentController(DocumentModel model, DocumentView view)
   {
@@ -26,10 +28,16 @@ public class DocumentController
       @Override
       public void mouseClicked(MouseEvent e)
       {
-        view.get_context().add_shape(new RectangleShape(new Vec2f(e.getX(), e.getY()), Color.RED, Color.GREEN, 100.0f));
+        if (stateManager.get_currentState() instanceof RectangleState)
+        {
+          RectangleShape rectangle = new RectangleShape(new Vec2f(e.getX(), e.getY()), Color.RED, Color.GREEN, 100.0f);
+          view.get_context().add_shape(rectangle);
+        }
       }
     });
   }
 
   public DocumentView get_view() { return this.view; }
+
+  public void set_rectangleState() { this.stateManager.set_rectangleState(); }
 }

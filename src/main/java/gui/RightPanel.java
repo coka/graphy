@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import actions.PlaceholderAction;
+import actions.RectangleStateAction;
 
 import java.net.URL;
 
@@ -78,7 +79,7 @@ public class RightPanel extends JPanel implements ActionListener
         RightPanel.add(Box.createVerticalStrut(10));  
         
     //seventh button
-        button = makeNavigationButton("Button 7", CLICK, "Button 7", "btn 7");
+        button = rectangleStateButton("Button 7", CLICK, "Button 7", "btn 7");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10)); 
         
@@ -102,6 +103,17 @@ public class RightPanel extends JPanel implements ActionListener
 		button.setPreferredSize(new Dimension(30, 30));
 
 		return button;
+  }
+
+  protected JButton rectangleStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+    RectangleStateAction action = new RectangleStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+    JButton button = new JButton(action);
+    button.setText("");
+    button.setToolTipText(toolTipText);
+    button.setPreferredSize(new Dimension(30, 30));
+
+    return button;
   }
   
   public void actionPerformed(ActionEvent e) {

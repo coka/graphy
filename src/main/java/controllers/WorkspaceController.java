@@ -11,11 +11,15 @@ public class WorkspaceController
   private WorkspaceModel model;
   private WorkspaceView view;
 
+  private int activeIndex;
+
   public WorkspaceController(WorkspaceModel model, WorkspaceView view)
   {
     this.model = model;
     this.view = view;
   }
+
+  public WorkspaceModel get_model() { return this.model; }
 
   public void create_diagram()
   {
@@ -23,10 +27,11 @@ public class WorkspaceController
     DocumentController document = new DocumentController(new DocumentModel(), new DocumentView());
     document.get_view().setLocation(offset, offset);
     this.model.get_documents().add(document);
-    DocumentView newFrame = this.model.get_documents().get(this.model.get_documents().size() - 1).get_view();
-    this.view.add(newFrame);
-    this.view.moveToFront(newFrame);
-    this.view.setSelectedFrame(newFrame);
+    this.activeIndex = this.model.get_documents().size() - 1;
+    DocumentView newView = this.model.get_documents().get(activeIndex).get_view();
+    this.view.add(newView);
+    this.view.moveToFront(newView);
+    this.view.setSelectedFrame(newView);
     this.model.increment_diagramCount();
   }
 
