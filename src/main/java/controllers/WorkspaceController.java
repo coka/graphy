@@ -19,14 +19,14 @@ public class WorkspaceController
 
   public void create_diagram()
   {
-    int xOffset = this.model.get_xOffset();
-    int yOffset = this.model.get_yOffset();
-    int diagramCount = this.model.get_diagramCount();
-    DocumentController document = new DocumentController(new DocumentView(diagramCount * xOffset, diagramCount * yOffset));
-    DocumentView diagram = document.get_view();
-    this.view.add(diagram);
-    this.view.moveToFront(diagram);
-    this.view.setSelectedFrame(diagram);
+    int offset = 24 * this.model.get_documents().size();
+    DocumentController document = new DocumentController(new DocumentModel(), new DocumentView());
+    document.get_view().setLocation(offset, offset);
+    this.model.get_documents().add(document);
+    DocumentView newFrame = this.model.get_documents().get(this.model.get_documents().size() - 1).get_view();
+    this.view.add(newFrame);
+    this.view.moveToFront(newFrame);
+    this.view.setSelectedFrame(newFrame);
     this.model.increment_diagramCount();
   }
 

@@ -3,6 +3,7 @@ package controllers;
 import java.awt.*;
 import java.awt.event.*;
 
+import models.*;
 import views.*;
 import shapes.*;
 import helpers.*;
@@ -10,9 +11,11 @@ import helpers.*;
 public class DocumentController
 {
   private DocumentView view;
+  private DocumentModel model;
 
-  public DocumentController(DocumentView view)
+  public DocumentController(DocumentModel model, DocumentView view)
   {
+    this.model = model;
     this.view = view;
     this.add_listeners();
   }
