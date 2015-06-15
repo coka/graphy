@@ -1,5 +1,6 @@
 package shapes;
 
+import java.util.*;
 import java.awt.*;
 import java.awt.geom.*;
 
@@ -48,5 +49,43 @@ public class RectangleShape extends AbstractShape
     ((GeneralPath)this.get_shape()).lineTo(this.get_position().x + this.width, this.get_position().y + this.height);
     ((GeneralPath)this.get_shape()).lineTo(this.get_position().x             , this.get_position().y + this.height);
     ((GeneralPath)this.get_shape()).closePath();
+  }
+
+  @Override
+  public void draw_handles(Graphics2D context)
+  {
+    float x = this.get_position().x;
+    float y = this.get_position().y;
+    float w = this.width * 0.5f;
+    float h = this.height * 0.5f;
+    float s = 4.0f; // handle half-size
+
+    context.setColor(Color.BLACK);
+
+    Rectangle2D.Float handle = new Rectangle2D.Float(0.0f, 0.0f, s * 2.0f, s * 2.0f);
+
+    handle.y = y - s;
+    handle.x = x - s;
+    context.fill(handle);
+    handle.x += w;
+    context.fill(handle);
+    handle.x += w;
+    context.fill(handle);
+
+    handle.y += h;
+    handle.x = x - s;
+    context.fill(handle);
+    handle.x += w;
+    // don't draw the center point
+    handle.x += w;
+    context.fill(handle);
+
+    handle.y += h;
+    handle.x = x - s;
+    context.fill(handle);
+    handle.x += w;
+    context.fill(handle);
+    handle.x += w;
+    context.fill(handle);
   }
 }

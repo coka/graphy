@@ -19,6 +19,7 @@ import actions.NewGraphyAboutAction;
 import actions.PlaceholderAction;
 import actions.TileWindowsHorizontallyAction;
 import actions.TileWindowsVerticallyAction;
+import actions.DeleteElementAction;
 
 public class TopPanel extends JPanel
 {
@@ -170,11 +171,16 @@ public class TopPanel extends JPanel
       NewDiagramAction action = new NewDiagramAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
       button = new JButton(action);
     }
+    else if (imageName == "Delete Element")
+    {
+      DeleteElementAction action = new DeleteElementAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
+      button = new JButton(action);
+    }
     else if (imageName == "Cascade Windows")
     {
       CascadeWindowsAction action = new CascadeWindowsAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
       button = new JButton(action);
-    }    
+    }
     else if (imageName == "Tile Windows Vertically")
     {
       TileWindowsVerticallyAction action = new TileWindowsVerticallyAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
@@ -196,12 +202,12 @@ public class TopPanel extends JPanel
         button = new JButton(action);
     }
     else if (imageName == "About")
-    {    	
+    {
       NewGraphyAboutAction action = new NewGraphyAboutAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
       button = new JButton(action);
     }
     else if (imageName == "Rename Diagram")
-    {    	
+    {
       DiagramRenameAction action = new DiagramRenameAction(new ImageIcon("images/Top Panel/" + imageName + ".jpg", altText));
       button = new JButton(action);
     }

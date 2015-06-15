@@ -23,11 +23,11 @@ import actions.RectangleStateAction;
 import actions.TriangleStateAction;
 import actions.StarStateAction;
 import actions.HexagonStateAction;
-
 import actions.OutlineRectangleStateAction;
 import actions.OutlineTriangleStateAction;
 import actions.OutlineStarStateAction;
 import actions.OutlineHexagonStateAction;
+import actions.SelectStateAction;
 
 import java.net.URL;
 
@@ -101,6 +101,11 @@ public class RightPanel extends JPanel implements ActionListener
         button = triangleStateButton("Triangle Colored", CLICK, "Triangle Colored", "btn 9");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));
+
+    //tenth button
+        button = selectStateButton("Select", CLICK, "Select", "btn 10");
+        RightPanel.add(button);
+        RightPanel.add(Box.createVerticalStrut(10));
  }
 
   protected JButton makeNavigationButton(String imageName, String actionCommand, String toolTipText, String altText) {
@@ -124,7 +129,7 @@ public class RightPanel extends JPanel implements ActionListener
 
     return button;
   }
-  
+
   protected JButton outlineRectangleStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
 	    OutlineRectangleStateAction action = new OutlineRectangleStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
@@ -135,7 +140,7 @@ public class RightPanel extends JPanel implements ActionListener
 
 	    return button;
 	  }
-  
+
   protected JButton triangleStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
 	    TriangleStateAction action = new TriangleStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
@@ -146,7 +151,7 @@ public class RightPanel extends JPanel implements ActionListener
 
 	    return button;
   }
-  
+
   protected JButton outlineTriangleStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
 	    OutlineTriangleStateAction action = new OutlineTriangleStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
@@ -157,7 +162,7 @@ public class RightPanel extends JPanel implements ActionListener
 
 	    return button;
 }
-  
+
   protected JButton starStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
 	    StarStateAction action = new StarStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
@@ -168,7 +173,7 @@ public class RightPanel extends JPanel implements ActionListener
 
 	    return button;
 }
-  
+
   protected JButton outlineStarStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
 	    OutlineStarStateAction action = new OutlineStarStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
@@ -179,7 +184,7 @@ public class RightPanel extends JPanel implements ActionListener
 
 	    return button;
 }
-  
+
   protected JButton hexagonStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
 	    HexagonStateAction action = new HexagonStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
@@ -190,7 +195,7 @@ public class RightPanel extends JPanel implements ActionListener
 
 	    return button;
 }
-  
+
   protected JButton outlineHexagonStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
 	    OutlineHexagonStateAction action = new OutlineHexagonStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
@@ -201,7 +206,18 @@ public class RightPanel extends JPanel implements ActionListener
 
 	    return button;
 }
-  
+
+  protected JButton selectStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+    SelectStateAction action = new SelectStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+    JButton button = new JButton(action);
+    button.setText("");
+    button.setToolTipText(toolTipText);
+    button.setPreferredSize(new Dimension(30, 30));
+
+    return button;
+  }
+
   public void actionPerformed(ActionEvent e) {
       String cmd = e.getActionCommand();
 
