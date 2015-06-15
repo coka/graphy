@@ -19,6 +19,9 @@ import javax.swing.SwingConstants;
 
 import actions.PlaceholderAction;
 import actions.RectangleStateAction;
+import actions.TriangleStateAction;
+import actions.StarStateAction;
+import actions.HexagonStateAction;
 
 import java.net.URL;
 
@@ -49,7 +52,7 @@ public class RightPanel extends JPanel implements ActionListener
 	  RightPanel.add(Box.createVerticalStrut(10));
 
 	//first button
-       button = makeNavigationButton("Circle", CLICK, "Circle", "btn 1");
+       button = makeNavigationButton("Hexagon", CLICK, "Hexagon", "btn 1");
        RightPanel.add(button);
        RightPanel.add(Box.createVerticalStrut(10));
 
@@ -74,7 +77,7 @@ public class RightPanel extends JPanel implements ActionListener
         RightPanel.add(Box.createVerticalStrut(10));
 
     //sixth button
-        button = makeNavigationButton("Circle Colored", CLICK, "Circle Colored", "btn 6");
+        button = hexagonStateButton("Hexagon Colored", CLICK, "Hexagon Colored", "btn 6");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));
 
@@ -84,12 +87,12 @@ public class RightPanel extends JPanel implements ActionListener
         RightPanel.add(Box.createVerticalStrut(10));
 
     //eight button
-        button = makeNavigationButton("Star Colored", CLICK, "Star Colored", "btn 8");
+        button = starStateButton("Star Colored", CLICK, "Star Colored", "btn 8");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));
 
     //ninth button
-        button = makeNavigationButton("Triangle Colored", CLICK, "Triangle Colored", "btn 9");
+        button = triangleStateButton("Triangle Colored", CLICK, "Triangle Colored", "btn 9");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));
  }
@@ -115,7 +118,40 @@ public class RightPanel extends JPanel implements ActionListener
 
     return button;
   }
+  
+  protected JButton triangleStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
+	    TriangleStateAction action = new TriangleStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+	    JButton button = new JButton(action);
+	    button.setText("");
+	    button.setToolTipText(toolTipText);
+	    button.setPreferredSize(new Dimension(30, 30));
+
+	    return button;
+  }
+  
+  protected JButton starStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+	    StarStateAction action = new StarStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+	    JButton button = new JButton(action);
+	    button.setText("");
+	    button.setToolTipText(toolTipText);
+	    button.setPreferredSize(new Dimension(30, 30));
+
+	    return button;
+}
+  
+  protected JButton hexagonStateButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+	    HexagonStateAction action = new HexagonStateAction(imageName, new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+	    JButton button = new JButton(action);
+	    button.setText("");
+	    button.setToolTipText(toolTipText);
+	    button.setPreferredSize(new Dimension(30, 30));
+
+	    return button;
+}
+  
   public void actionPerformed(ActionEvent e) {
       String cmd = e.getActionCommand();
 

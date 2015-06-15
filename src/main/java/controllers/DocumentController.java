@@ -30,8 +30,23 @@ public class DocumentController
       {
         if (stateManager.get_currentState() instanceof RectangleState)
         {
-          RectangleShape rectangle = new RectangleShape(new Vec2f(e.getX(), e.getY()), Color.RED, Color.GREEN, 100.0f);
+          RectangleShape rectangle = new RectangleShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GREEN, 100.0f);
           view.get_context().add_shape(rectangle);
+        }
+        else if (stateManager.get_currentState() instanceof TriangleState)
+        {
+        	TriangleShape triangle = new TriangleShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GREEN, 100.0f);
+            view.get_context().add_shape(triangle);
+        }
+        else if (stateManager.get_currentState() instanceof StarState)
+        {
+        	StarShape star = new StarShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GREEN, 100.0f);
+            view.get_context().add_shape(star);
+        }        
+        else if (stateManager.get_currentState() instanceof HexagonState)
+        {
+        	HexagonShape hexagon = new HexagonShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GREEN, 100.0f);
+            view.get_context().add_shape(hexagon);
         }
       }
     });
@@ -40,4 +55,7 @@ public class DocumentController
   public DocumentView get_view() { return this.view; }
 
   public void set_rectangleState() { this.stateManager.set_rectangleState(); }
+  public void set_triangleState() { this.stateManager.set_triangleState(); }
+  public void set_starState() { this.stateManager.set_starState(); }
+  public void set_hexagonState() { this.stateManager.set_hexagonState(); }
 }
