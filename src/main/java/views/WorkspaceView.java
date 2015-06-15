@@ -30,6 +30,7 @@ public class WorkspaceView extends JDesktopPane
   
   public void rename_diagram()
   {
+	  DiagramRename diagramRename = new DiagramRename(CenterPanel, true);
 	  this.add(diagramRename);	  
 	  this.moveToFront(diagramRename);		  
   }
