@@ -63,6 +63,34 @@ public class GraphicsView extends JComponent
     this.repaint();
   }
 
+  public void rotate_selected_left()
+  {
+    for (int i = 0; i < this.shapes.size(); i++)
+    {
+      if (this.shapes.get(i).get_isSelected())
+      {
+        AbstractShape currentShape = this.shapes.get(i);
+        float newRotation = currentShape.get_rotation() - (float)Math.PI / 2.0f;
+        this.shapes.get(i).set_rotation(newRotation);
+      }
+    }
+    this.repaint();
+  }
+
+  public void rotate_selected_right()
+  {
+    for (int i = 0; i < this.shapes.size(); i++)
+    {
+      if (this.shapes.get(i).get_isSelected())
+      {
+        AbstractShape currentShape = this.shapes.get(i);
+        float newRotation = currentShape.get_rotation() + (float)Math.PI / 2.0f;
+        this.shapes.get(i).set_rotation(newRotation);
+      }
+    }
+    this.repaint();
+  }
+
   public void clear_selection()
   {
     for (int i = 0; i < this.shapes.size(); i++) { this.shapes.get(i).set_selected(false); }
