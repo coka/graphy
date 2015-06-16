@@ -2,6 +2,11 @@ package views;
 
 import java.util.*;
 import java.awt.*;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
+import java.awt.geom.Point2D;
+
 import javax.swing.*;
 
 import shapes.*;
@@ -10,17 +15,56 @@ import helpers.*;
 public class GraphicsView extends JComponent
 {
   private ArrayList<AbstractShape> shapes = new ArrayList<AbstractShape>();
-
-  public GraphicsView() { super(); }
+  
+  double translateX = 1;
+  double translateY = 1;
+  
+  double scaling = 1;
+  final static double scalingFactor = 1.2;  
+  final static double translateFactor = 10;
+  
+  public GraphicsView() { super(); 
+  
+  this.addMouseWheelListener(new MouseWheelListener(){
+      @Override
+      public void mouseWheelMoved(MouseWheelEvent e) {
+          if ((e.getModifiers() & InputEvent.CTRL_MASK) == InputEvent.CTRL_MASK) {
+              //double newScaling = scaling;
+				if(e.getWheelRotation()>0)
+					scaling *= (double)e.getWheelRotation()*scalingFactor;
+				else
+					scaling /= -(double)e.getWheelRotation()*scalingFactor;
+				
+				if(scaling < 0.2)
+					scaling = 0.2;
+				if(scaling > 5)
+					scaling = 5;			
+				
+          }else if((e.getModifiers()&MouseWheelEvent.SHIFT_MASK) != 0){
+				translateX += (double)e.getWheelRotation() * translateFactor/scaling;
+          }else{
+        	  	translateY += (double)e.getWheelRotation() * translateFactor/scaling;
+          }
+          
+          repaint();
+      }
+      
+  });
+  
+  }
 
   @Override
   public void paint(Graphics g)
   {
-    Graphics2D g2 = (Graphics2D)g;
-
+    Graphics2D g2 = (Graphics2D)g;  
+    g2.translate(translateX, translateY); 
+    g2.scale( scaling, scaling ); //zoom in and out by changing the scale      
+    g2.translate(-translateX, -translateY);
+    
     for (int i = 0; i < this.shapes.size(); i++)
-    {
-      this.shapes.get(i).draw(g2);
+    {    	
+    	
+    	this.shapes.get(i).draw(g2);
     }
   }
 
