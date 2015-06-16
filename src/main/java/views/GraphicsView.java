@@ -21,7 +21,7 @@ public class GraphicsView extends JComponent
   
   double scaling = 1;
   final static double scalingFactor = 1.2;  
-  final static double translateFactor = 10;
+  final static double translateFactor = 50;
   
   public GraphicsView() { super(); 
   
@@ -58,8 +58,7 @@ public class GraphicsView extends JComponent
   {
     Graphics2D g2 = (Graphics2D)g;  
     g2.translate(translateX, translateY); 
-    g2.scale( scaling, scaling ); //zoom in and out by changing the scale      
-    g2.translate(-translateX, -translateY);
+    g2.scale( scaling, scaling );          
     
     for (int i = 0; i < this.shapes.size(); i++)
     {    	
