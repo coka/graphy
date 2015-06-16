@@ -13,8 +13,8 @@ public class DocumentView extends JInternalFrame
   private JScrollBar sbVertical;
   private JScrollBar sbHorizontal;
 
-  private int hScrollValue=140;
-  private int vScrollValue=140; 
+  public int hScrollValue=140;
+  public int vScrollValue=140; 
 
   private GraphicsView context = new GraphicsView();
 

@@ -2,12 +2,15 @@ package views;
 
 import java.util.*;
 import java.awt.*;
+import java.awt.event.AdjustmentEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.geom.Point2D;
 
 import javax.swing.*;
+
+import org.w3c.dom.views.DocumentView;
 
 import shapes.*;
 import helpers.*;
@@ -18,6 +21,9 @@ public class GraphicsView extends JComponent
   
   double translateX = 1;
   double translateY = 1;
+  
+  public int hScrollValue=140;
+  public int vScrollValue=140; 
   
   double scaling = 1;
   final static double scalingFactor = 1.2;  
@@ -66,6 +72,58 @@ public class GraphicsView extends JComponent
     	this.shapes.get(i).draw(g2);
     }
   }
+  
+  public void adjustmentValueChanged(AdjustmentEvent e) {
+		// TODO Auto-generated method stub
+	  
+		if(e.getAdjustable().getOrientation()==Adjustable.HORIZONTAL){
+			if(hScrollValue<e.getValue()){
+				translateX+=(double)((e.getValue()-hScrollValue)*(-translateFactor))/scaling;
+				//transformation.translate((double)((e.getValue()-hScrollValue)*(-translateFactor))/transformation.getScaleX(), 0);
+
+			}
+			else{
+				translateX+=(double)((e.getValue()-hScrollValue)*(-translateFactor))/scaling;							
+			}
+			hScrollValue=e.getValue();
+			
+		}
+		else{
+			if(vScrollValue<e.getValue()){			
+				translateY+=(double)((e.getValue()-vScrollValue)*(-translateFactor))/scaling;
+			}
+			else{
+				translateY+=(double)((e.getValue()-vScrollValue)*(-translateFactor))/scaling;
+			}
+			vScrollValue=e.getValue();
+		}
+		
+		repaint();
+
+	}
+  
+  public void centerZoom(boolean direction) {		
+		
+		if (direction)
+			if (scaling > 4.9)
+				return;
+			else;
+		else
+			if (scaling < 0.3)
+				return;
+		
+		if (direction)
+			scaling *= scalingFactor;
+		else
+			scaling /= scalingFactor;
+		
+		if(scaling < 0.2)
+			scaling = 0.2;
+		if(scaling > 5)
+			scaling = 5;
+		
+		repaint();
+	}
 
   public ArrayList<AbstractShape> get_shapes() { return this.shapes; }
 
