@@ -28,7 +28,7 @@ import actions.OutlineTriangleStateAction;
 import actions.OutlineStarStateAction;
 import actions.OutlineHexagonStateAction;
 import actions.SelectStateAction;
-import actions.RectangleColorPickerAction;
+import actions.ColorPickerAction;
 
 import java.net.URL;
 
@@ -221,7 +221,7 @@ public class RightPanel extends JPanel implements ActionListener
   
   protected JButton colorPickerButton(String imageName, String actionCommand, String toolTipText, String altText) {
 
-	    RectangleColorPickerAction action = new RectangleColorPickerAction(new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+	    ColorPickerAction action = new ColorPickerAction(new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
 	    JButton button = new JButton(action);
 	    button.setText("");
 	    button.setToolTipText(toolTipText);

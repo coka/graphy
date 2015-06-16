@@ -33,7 +33,7 @@ public class DocumentController
         {
           if (stateManager.get_currentState() instanceof RectangleState)
           {
-            RectangleShape rectangle = new RectangleShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GREEN, 100.0f);
+            RectangleShape rectangle = new RectangleShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GRAY, 100.0f);
             view.get_context().add_shape(rectangle);
           }
           else if (stateManager.get_currentState() instanceof OutlineRectangleState)
@@ -43,7 +43,7 @@ public class DocumentController
           }
           else if (stateManager.get_currentState() instanceof TriangleState)
           {
-            TriangleShape triangle = new TriangleShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GREEN, 100.0f);
+            TriangleShape triangle = new TriangleShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GRAY, 100.0f);
             view.get_context().add_shape(triangle);
           }
           else if (stateManager.get_currentState() instanceof OutlineTriangleState)
@@ -53,7 +53,7 @@ public class DocumentController
           }
           else if (stateManager.get_currentState() instanceof StarState)
           {
-            StarShape star = new StarShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GREEN, 100.0f);
+            StarShape star = new StarShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GRAY, 100.0f);
             view.get_context().add_shape(star);
           }
           else if (stateManager.get_currentState() instanceof OutlineStarState)
@@ -63,7 +63,7 @@ public class DocumentController
           }
           else if (stateManager.get_currentState() instanceof HexagonState)
           {
-            HexagonShape hexagon = new HexagonShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GREEN, 100.0f);
+            HexagonShape hexagon = new HexagonShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GRAY, 100.0f);
             view.get_context().add_shape(hexagon);
           }
           else if (stateManager.get_currentState() instanceof OutlineHexagonState)

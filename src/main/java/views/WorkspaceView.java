@@ -2,7 +2,7 @@ package views;
 
 import graphy.extra.windows.DiagramRename;
 import graphy.extra.windows.GraphyAbout;
-import graphy.extra.windows.ColorPickerRectangle;
+import graphy.extra.windows.ColorPicker;
 
 import java.awt.*;
 import javax.swing.*;
@@ -38,7 +38,7 @@ public class WorkspaceView extends JDesktopPane
   
   public void create_color_picker()
   {
-	  ColorPickerRectangle colorPickerR = new ColorPickerRectangle(CenterPanel, true);
+	  ColorPicker colorPickerR = new ColorPicker(CenterPanel, true);
 	  this.add(colorPickerR);	  
 	  this.moveToFront(colorPickerR);		
   }

@@ -7,11 +7,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 
-public class RectangleColorPickerAction extends AbstractAction
+public class ColorPickerAction extends AbstractAction
 {
   //private Integer mnemonic = new Integer('A');
 
-  public RectangleColorPickerAction(ImageIcon icon)
+  public ColorPickerAction(ImageIcon icon)
   {
     super("About", icon);
    //putValue(MNEMONIC_KEY, mnemonic);
