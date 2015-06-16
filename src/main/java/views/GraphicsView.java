@@ -76,6 +76,12 @@ public class GraphicsView extends JComponent
     this.repaint();
   }
 
+  public void set_rotation_at(float rotation, int index)
+  {
+    this.shapes.get(index).set_rotation(rotation);
+    this.repaint();
+  }
+
   public void set_selected_at(int index)
   {
     this.shapes.get(index).set_selected(true);
@@ -96,6 +102,34 @@ public class GraphicsView extends JComponent
       {
         this.shapes.remove(i);
         i--;
+      }
+    }
+    this.repaint();
+  }
+
+  public void rotate_selected_left()
+  {
+    for (int i = 0; i < this.shapes.size(); i++)
+    {
+      if (this.shapes.get(i).get_isSelected())
+      {
+        AbstractShape currentShape = this.shapes.get(i);
+        float newRotation = currentShape.get_rotation() - (float)Math.PI / 2.0f;
+        this.shapes.get(i).set_rotation(newRotation);
+      }
+    }
+    this.repaint();
+  }
+
+  public void rotate_selected_right()
+  {
+    for (int i = 0; i < this.shapes.size(); i++)
+    {
+      if (this.shapes.get(i).get_isSelected())
+      {
+        AbstractShape currentShape = this.shapes.get(i);
+        float newRotation = currentShape.get_rotation() + (float)Math.PI / 2.0f;
+        this.shapes.get(i).set_rotation(newRotation);
       }
     }
     this.repaint();

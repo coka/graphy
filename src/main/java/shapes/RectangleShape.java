@@ -12,7 +12,7 @@ public class RectangleShape extends AbstractShape
 
   public RectangleShape(Vec2f position, float size)
   {
-    super(position);
+    super(position, new Vec2f(size));
     this.width  = size;
     this.height = size;
     this.construct_shape();
@@ -20,23 +20,23 @@ public class RectangleShape extends AbstractShape
 
   public RectangleShape(Vec2f position, float width, float height)
   {
-    super(position);
+    super(position, new Vec2f(width, height));
     this.width  = width ;
     this.height = height;
     this.construct_shape();
   }
 
-  public RectangleShape(Vec2f position, Color stroke, Color fill, float size)
+  public RectangleShape(Vec2f position, float size, Color stroke, Color fill)
   {
-    super(position, stroke, fill);
+    super(position, new Vec2f(size), stroke, fill);
     this.width  = size;
     this.height = size;
     this.construct_shape();
   }
 
-  public RectangleShape(Vec2f position, Color stroke, Color fill, float width, float height)
+  public RectangleShape(Vec2f position, float width, float height, Color stroke, Color fill)
   {
-    super(position, stroke, fill);
+    super(position, new Vec2f(width, height), stroke, fill);
     this.width  = width ;
     this.height = height;
     this.construct_shape();
@@ -44,48 +44,30 @@ public class RectangleShape extends AbstractShape
 
   public void construct_shape()
   {
-    ((GeneralPath)this.get_shape()).moveTo(this.get_position().x             , this.get_position().y              );
-    ((GeneralPath)this.get_shape()).lineTo(this.get_position().x + this.width, this.get_position().y              );
-    ((GeneralPath)this.get_shape()).lineTo(this.get_position().x + this.width, this.get_position().y + this.height);
-    ((GeneralPath)this.get_shape()).lineTo(this.get_position().x             , this.get_position().y + this.height);
+    ((GeneralPath)this.get_shape()).moveTo(0.0f, 0.0f);
+    ((GeneralPath)this.get_shape()).lineTo(this.width, 0.0f);
+    ((GeneralPath)this.get_shape()).lineTo(this.width, this.height);
+    ((GeneralPath)this.get_shape()).lineTo(0.0f, this.height);
     ((GeneralPath)this.get_shape()).closePath();
   }
 
   @Override
-  public void draw_handles(Graphics2D context)
+  public void draw(Graphics2D context)
   {
-    float x = this.get_position().x;
-    float y = this.get_position().y;
-    float w = this.width * 0.5f;
-    float h = this.height * 0.5f;
-    float s = 4.0f; // handle half-size
+    AffineTransform oldTransform = context.getTransform();
 
-    context.setColor(Color.BLACK);
+    context.translate(this.get_position().x - this.get_size().x * 0.5f, this.get_position().y - this.get_size().y * 0.5f);
+    context.rotate(this.get_rotation(), this.get_size().x * 0.5f, this.get_size().y * 0.5f);
 
-    Rectangle2D.Float handle = new Rectangle2D.Float(0.0f, 0.0f, s * 2.0f, s * 2.0f);
+    if (this.get_fill() != null)
+    {
+      context.setColor(this.get_fill());
+      context.fill(this.get_shape());
+    }
+    context.setColor(this.get_stroke());
+    context.draw(this.get_shape());
+    if (this.get_isSelected()) { this.draw_handles(context); }
 
-    handle.y = y - s;
-    handle.x = x - s;
-    context.fill(handle);
-    handle.x += w;
-    context.fill(handle);
-    handle.x += w;
-    context.fill(handle);
-
-    handle.y += h;
-    handle.x = x - s;
-    context.fill(handle);
-    handle.x += w;
-    // don't draw the center point
-    handle.x += w;
-    context.fill(handle);
-
-    handle.y += h;
-    handle.x = x - s;
-    context.fill(handle);
-    handle.x += w;
-    context.fill(handle);
-    handle.x += w;
-    context.fill(handle);
+    context.setTransform(oldTransform);
   }
 }

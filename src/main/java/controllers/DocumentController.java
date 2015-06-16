@@ -31,44 +31,47 @@ public class DocumentController
       {
         if (e.getButton() == MouseEvent.BUTTON1)
         {
+          float width  = 50.0f;
+          float height = 50.0f;
+          float size   = 50.0f;
           if (stateManager.get_currentState() instanceof RectangleState)
           {
-            RectangleShape rectangle = new RectangleShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GRAY, 100.0f);
+            RectangleShape rectangle = new RectangleShape(new Vec2f(e.getX(), e.getY()), size, Color.BLACK, Color.GREEN);
             view.get_context().add_shape(rectangle);
           }
           else if (stateManager.get_currentState() instanceof OutlineRectangleState)
           {
-            RectangleShape outlineRectangle = new RectangleShape(new Vec2f(e.getX()-50, e.getY()-50), 100.0f);
+            RectangleShape outlineRectangle = new RectangleShape(new Vec2f(e.getX() - width / 2.0f, e.getY() - height / 2.0f), 100.0f);
             view.get_context().add_shape(outlineRectangle);
           }
           else if (stateManager.get_currentState() instanceof TriangleState)
           {
-            TriangleShape triangle = new TriangleShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GRAY, 100.0f);
+            TriangleShape triangle = new TriangleShape(new Vec2f(e.getX() - width / 2.0f, e.getY() - height / 2.0f), width, height, Color.BLACK, Color.GREEN);
             view.get_context().add_shape(triangle);
           }
           else if (stateManager.get_currentState() instanceof OutlineTriangleState)
           {
-            TriangleShape outlineTriangle = new TriangleShape(new Vec2f(e.getX()-50, e.getY()-50), 100.0f);
+            TriangleShape outlineTriangle = new TriangleShape(new Vec2f(e.getX() - width / 2.0f, e.getY() - height / 2.0f), 100.0f);
             view.get_context().add_shape(outlineTriangle);
           }
           else if (stateManager.get_currentState() instanceof StarState)
           {
-            StarShape star = new StarShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GRAY, 100.0f);
+            StarShape star= new StarShape(new Vec2f(e.getX() - width / 2.0f, e.getY() - height / 2.0f), width, height, Color.BLACK, Color.GREEN);
             view.get_context().add_shape(star);
           }
           else if (stateManager.get_currentState() instanceof OutlineStarState)
           {
-            StarShape outlineStar = new StarShape(new Vec2f(e.getX()-50, e.getY()-50), 100.0f);
+            StarShape outlineStar = new StarShape(new Vec2f(e.getX() - width / 2.0f, e.getY() - height / 2.0f), 100.0f);
             view.get_context().add_shape(outlineStar);
           }
           else if (stateManager.get_currentState() instanceof HexagonState)
           {
-            HexagonShape hexagon = new HexagonShape(new Vec2f(e.getX()-50, e.getY()-50), Color.BLACK, Color.GRAY, 100.0f);
+            HexagonShape hexagon = new HexagonShape(new Vec2f(e.getX() - width / 2.0f, e.getY() - height / 2.0f), width, height, Color.BLACK, Color.GREEN);
             view.get_context().add_shape(hexagon);
           }
           else if (stateManager.get_currentState() instanceof OutlineHexagonState)
           {
-            HexagonShape outlineHexagon = new HexagonShape(new Vec2f(e.getX()-50, e.getY()-50), 100.0f);
+            HexagonShape outlineHexagon = new HexagonShape(new Vec2f(e.getX() - width / 2.0f, e.getY() - height / 2.0f), 100.0f);
             view.get_context().add_shape(outlineHexagon);
           }
           else if (stateManager.get_currentState() instanceof SelectState)
@@ -78,7 +81,9 @@ public class DocumentController
               boolean missedEverything = true;
               for (int i = 0; i < view.get_context().get_shapes().size(); i++)
               {
-                if (view.get_context().get_shapes().get(i).get_shape().contains(e.getX(), e.getY()))
+                AbstractShape currentShape = view.get_context().get_shapes().get(i);
+                if (currentShape.get_shape().contains(e.getX() - currentShape.get_position().x + currentShape.get_size().x * 0.5f,
+                                                      e.getY() - currentShape.get_position().y + currentShape.get_size().y * 0.5f))
                 {
                   if (missedEverything) { missedEverything = false; }
                   view.get_context().clear_selection();
@@ -92,7 +97,10 @@ public class DocumentController
               int mem = -1; // toggle only the element on top
               for (int i = 0; i < view.get_context().get_shapes().size(); i++)
               {
-                if (view.get_context().get_shapes().get(i).get_shape().contains(e.getX(), e.getY())) { mem = i; }
+                AbstractShape currentShape = view.get_context().get_shapes().get(i);
+                if (currentShape.get_shape().contains(e.getX() - currentShape.get_position().x + currentShape.get_size().x * 0.5f,
+                                                      e.getY() - currentShape.get_position().y + currentShape.get_size().y * 0.5f))
+                { mem = i; }
               }
               if (mem != -1) { view.get_context().toggle_selected_at(mem); }
             }
