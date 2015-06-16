@@ -2,6 +2,7 @@ package views;
 
 import graphy.extra.windows.DiagramRename;
 import graphy.extra.windows.GraphyAbout;
+import graphy.extra.windows.ColorPickerRectangle;
 
 import java.awt.*;
 import javax.swing.*;
@@ -33,6 +34,13 @@ public class WorkspaceView extends JDesktopPane
 	  DiagramRename diagramRename = new DiagramRename(CenterPanel, true);
 	  this.add(diagramRename);	  
 	  this.moveToFront(diagramRename);		  
+  }
+  
+  public void create_color_picker()
+  {
+	  ColorPickerRectangle colorPickerR = new ColorPickerRectangle(CenterPanel, true);
+	  this.add(colorPickerR);	  
+	  this.moveToFront(colorPickerR);		
   }
 
   public void tile_diagrams_vertically()

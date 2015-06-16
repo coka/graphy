@@ -28,6 +28,7 @@ import actions.OutlineTriangleStateAction;
 import actions.OutlineStarStateAction;
 import actions.OutlineHexagonStateAction;
 import actions.SelectStateAction;
+import actions.RectangleColorPickerAction;
 
 import java.net.URL;
 
@@ -78,7 +79,7 @@ public class RightPanel extends JPanel implements ActionListener
         RightPanel.add(Box.createVerticalStrut(10));
 
     //fifth button
-        button = makeNavigationButton("Color Picker", CLICK, "Color Picker", "btn 5");
+        button = colorPickerButton("Color Picker", CLICK, "Color Picker", "btn 5");
         RightPanel.add(button);
         RightPanel.add(Box.createVerticalStrut(10));
 
@@ -217,6 +218,17 @@ public class RightPanel extends JPanel implements ActionListener
 
     return button;
   }
+  
+  protected JButton colorPickerButton(String imageName, String actionCommand, String toolTipText, String altText) {
+
+	    RectangleColorPickerAction action = new RectangleColorPickerAction(new ImageIcon("images/Right Panel/" + imageName + ".jpg"));
+	    JButton button = new JButton(action);
+	    button.setText("");
+	    button.setToolTipText(toolTipText);
+	    button.setPreferredSize(new Dimension(30, 30));
+
+	    return button;
+	  }
 
   public void actionPerformed(ActionEvent e) {
       String cmd = e.getActionCommand();
