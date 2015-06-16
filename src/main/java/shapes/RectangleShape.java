@@ -44,10 +44,30 @@ public class RectangleShape extends AbstractShape
 
   public void construct_shape()
   {
-    ((GeneralPath)this.get_shape()).moveTo(this.get_position().x             , this.get_position().y              );
-    ((GeneralPath)this.get_shape()).lineTo(this.get_position().x + this.width, this.get_position().y              );
-    ((GeneralPath)this.get_shape()).lineTo(this.get_position().x + this.width, this.get_position().y + this.height);
-    ((GeneralPath)this.get_shape()).lineTo(this.get_position().x             , this.get_position().y + this.height);
+    ((GeneralPath)this.get_shape()).moveTo(0.0f, 0.0f);
+    ((GeneralPath)this.get_shape()).lineTo(this.width, 0.0f);
+    ((GeneralPath)this.get_shape()).lineTo(this.width, this.height);
+    ((GeneralPath)this.get_shape()).lineTo(0.0f, this.height);
     ((GeneralPath)this.get_shape()).closePath();
+  }
+
+  @Override
+  public void draw(Graphics2D context)
+  {
+    AffineTransform oldTransform = context.getTransform();
+
+    context.translate(this.get_position().x - this.get_size().x * 0.5f, this.get_position().y - this.get_size().y * 0.5f);
+    context.rotate(this.get_rotation(), this.get_size().x * 0.5f, this.get_size().y * 0.5f);
+
+    if (this.get_fill() != null)
+    {
+      context.setColor(this.get_fill());
+      context.fill(this.get_shape());
+    }
+    context.setColor(this.get_stroke());
+    context.draw(this.get_shape());
+    if (this.get_isSelected()) { this.draw_handles(context); }
+
+    context.setTransform(oldTransform);
   }
 }

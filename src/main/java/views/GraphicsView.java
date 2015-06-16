@@ -32,6 +32,12 @@ public class GraphicsView extends JComponent
     this.repaint();
   }
 
+  public void set_rotation_at(float rotation, int index)
+  {
+    this.shapes.get(index).set_rotation(rotation);
+    this.repaint();
+  }
+
   public void set_selected_at(int index)
   {
     this.shapes.get(index).set_selected(true);
