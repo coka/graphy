@@ -11,7 +11,7 @@ public class StarShape extends AbstractShape
 
   public StarShape(Vec2f position, float size)
   {
-    super(position);
+    super(position, new Vec2f(size));
     this.width  = size;
     this.height = size;
     this.construct_shape();
@@ -19,23 +19,23 @@ public class StarShape extends AbstractShape
 
   public StarShape(Vec2f position, float width, float height)
   {
-    super(position);
+    super(position, new Vec2f(width, height));
     this.width  = width ;
     this.height = height;
     this.construct_shape();
   }
 
-  public StarShape(Vec2f position, Color stroke, Color fill, float size)
+  public StarShape(Vec2f position, float size, Color stroke, Color fill)
   {
-    super(position, stroke, fill);
+    super(position, new Vec2f(size), stroke, fill);
     this.width  = size;
     this.height = size;
     this.construct_shape();
   }
 
-  public StarShape(Vec2f position, Color stroke, Color fill, float width, float height)
+  public StarShape(Vec2f position, float width, float height, Color stroke, Color fill)
   {
-    super(position, stroke, fill);
+    super(position, new Vec2f(width, height), stroke, fill);
     this.width  = width ;
     this.height = height;
     this.construct_shape();

@@ -12,7 +12,7 @@ public class RectangleShape extends AbstractShape
 
   public RectangleShape(Vec2f position, float size)
   {
-    super(position);
+    super(position, new Vec2f(size));
     this.width  = size;
     this.height = size;
     this.construct_shape();
@@ -20,23 +20,23 @@ public class RectangleShape extends AbstractShape
 
   public RectangleShape(Vec2f position, float width, float height)
   {
-    super(position);
+    super(position, new Vec2f(width, height));
     this.width  = width ;
     this.height = height;
     this.construct_shape();
   }
 
-  public RectangleShape(Vec2f position, Color stroke, Color fill, float size)
+  public RectangleShape(Vec2f position, float size, Color stroke, Color fill)
   {
-    super(position, stroke, fill);
+    super(position, new Vec2f(size), stroke, fill);
     this.width  = size;
     this.height = size;
     this.construct_shape();
   }
 
-  public RectangleShape(Vec2f position, Color stroke, Color fill, float width, float height)
+  public RectangleShape(Vec2f position, float width, float height, Color stroke, Color fill)
   {
-    super(position, stroke, fill);
+    super(position, new Vec2f(width, height), stroke, fill);
     this.width  = width ;
     this.height = height;
     this.construct_shape();
@@ -49,43 +49,5 @@ public class RectangleShape extends AbstractShape
     ((GeneralPath)this.get_shape()).lineTo(this.get_position().x + this.width, this.get_position().y + this.height);
     ((GeneralPath)this.get_shape()).lineTo(this.get_position().x             , this.get_position().y + this.height);
     ((GeneralPath)this.get_shape()).closePath();
-  }
-
-  @Override
-  public void draw_handles(Graphics2D context)
-  {
-    float x = this.get_position().x;
-    float y = this.get_position().y;
-    float w = this.width * 0.5f;
-    float h = this.height * 0.5f;
-    float s = 4.0f; // handle half-size
-
-    context.setColor(Color.BLACK);
-
-    Rectangle2D.Float handle = new Rectangle2D.Float(0.0f, 0.0f, s * 2.0f, s * 2.0f);
-
-    handle.y = y - s;
-    handle.x = x - s;
-    context.fill(handle);
-    handle.x += w;
-    context.fill(handle);
-    handle.x += w;
-    context.fill(handle);
-
-    handle.y += h;
-    handle.x = x - s;
-    context.fill(handle);
-    handle.x += w;
-    // don't draw the center point
-    handle.x += w;
-    context.fill(handle);
-
-    handle.y += h;
-    handle.x = x - s;
-    context.fill(handle);
-    handle.x += w;
-    context.fill(handle);
-    handle.x += w;
-    context.fill(handle);
   }
 }
