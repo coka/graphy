@@ -6,6 +6,8 @@ bin/
 
 # Eclipse
 .settings/
+*.classpath
+*.project
 
 # IntelliJ IDEA
 out/
