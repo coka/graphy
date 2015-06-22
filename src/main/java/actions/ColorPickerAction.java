@@ -20,5 +20,5 @@ public class ColorPickerAction extends AbstractAction
   public void actionPerformed(ActionEvent e)
   {
     MainWindow.get_instance().centerPanel.create_color_picker();
- }
+  }
 }

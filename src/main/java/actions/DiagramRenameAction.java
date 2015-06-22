@@ -20,5 +20,5 @@ public class DiagramRenameAction extends AbstractAction
   public void actionPerformed(ActionEvent e)
   {
     MainWindow.get_instance().centerPanel.rename_diagram();
- }
+  }
 }

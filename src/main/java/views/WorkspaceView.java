@@ -13,32 +13,32 @@ public class WorkspaceView extends JDesktopPane
   @Override
   protected void paintComponent(Graphics g)
   {
-      super.paintComponent(g);
-      ImageIcon icon = new ImageIcon("images/Background.jpg");
-      g.drawImage(icon.getImage(), 0, 0, getWidth(), getHeight(), this);
+    super.paintComponent(g);
+    ImageIcon icon = new ImageIcon("images/Background.jpg");
+    g.drawImage(icon.getImage(), 0, 0, getWidth(), getHeight(), this);
   }
 
   public WorkspaceView() { super(); }
 
   public void create_about()
   {
-	  GraphyAbout graphyAbout = new GraphyAbout(CenterPanel, true);
-	  this.add(graphyAbout);
-	  this.moveToFront(graphyAbout);
+    GraphyAbout graphyAbout = new GraphyAbout(CenterPanel, true);
+    this.add(graphyAbout);
+    this.moveToFront(graphyAbout);
   }
 
   public void rename_diagram()
   {
-	  DiagramRename diagramRename = new DiagramRename(CenterPanel, true);
-	  this.add(diagramRename);
-	  this.moveToFront(diagramRename);
+    DiagramRename diagramRename = new DiagramRename(CenterPanel, true);
+    this.add(diagramRename);
+    this.moveToFront(diagramRename);
   }
 
   public void create_color_picker()
   {
-	  ColorPicker colorPickerR = new ColorPicker(CenterPanel, true);
-	  this.add(colorPickerR);
-	  this.moveToFront(colorPickerR);
+    ColorPicker colorPickerR = new ColorPicker(CenterPanel, true);
+    this.add(colorPickerR);
+    this.moveToFront(colorPickerR);
   }
 
   public void tile_diagrams_vertically()

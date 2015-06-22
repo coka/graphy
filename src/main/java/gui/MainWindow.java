@@ -1,12 +1,9 @@
 package gui;
 
-import gui.window.listener.GraphyWindowListener;
-
-
-import java.awt.BorderLayout;
-
+import java.awt.*;
 import javax.swing.*;
 
+import gui.window.listener.GraphyWindowListener;
 import models.*;
 import views.*;
 import controllers.*;
@@ -51,6 +48,5 @@ public class MainWindow extends JFrame
     this.setIconImage(img.getImage());
 
     addWindowListener(new GraphyWindowListener());
-
   }
 }

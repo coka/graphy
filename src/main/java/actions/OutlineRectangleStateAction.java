@@ -17,5 +17,4 @@ public class OutlineRectangleStateAction extends AbstractAction
     ArrayList<DocumentController> allDocuments = controller.get_model().get_documents();
     for (int i = 0; i < allDocuments.size(); i++) { allDocuments.get(i).set_outlineRectangleState(); }
   }
-
 }
