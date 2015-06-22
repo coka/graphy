@@ -6,30 +6,31 @@ import actions.*;
 
 public class MenuBar extends JMenuBar
 {
-  private JMenu[] menuArray = new JMenu[5]; // hard-coded number of menus
-
-  private String[] menus = new String[] {"File", "Edit", "View", "Window", "Help"};
-  private char[] menuMnemonics = {'F', 'E', 'V', 'W', 'H'};
-
-  private String[] fileItems = new String[] {"New Diagram", "Open", "Save", "Import Diagram", "Export Diagram", "Close/Remove Diagram"};
-  private String[] editItems = new String[] {"Undo", "Redo", "Cut", "Copy", "Paste", "Rotate Left", "Rotate Right", "Rename Diagram", "Delete Element"};
-  private String[] viewItems = new String[] {"Zoom In", "Zoom Out"};
-  private String[] windowItems = new String[] {"Cascade Windows", "Tile Windows Vertically", "Tile Windows Horizontally", "Previous Window", "Next Window"};
-  private String[] helpItems = new String[] {"About"};
-
-  private char[] fileMnemonics = {'N', 'O', 'S', 'I', 'E', 'C'};
-  private char[] editMnemonics = {'U', 'R', 'C', 'Y', 'P', 'L', 'R', 'n', 'D'};
-  private char[] viewMnemonics = {'I', 'O'};
-  private char[] windowMnemonics = {'C', 'V', 'H', 'P', 'N'};
-  private char[] helpMnemonics = {'A'};
-
   public MenuBar()
   {
+    JMenu[] menuArray = new JMenu[5]; // hard-coded number of menus
+
+    String[] menus   = new String[] {"File", "Edit", "View", "Window", "Help"};
+    char[] mnemonics = new char[]   {'F', 'E', 'V', 'W', 'H'};
+
+    String[] fileItems   = new String[] {"New Diagram", "Open", "Save", "Import Diagram", "Export Diagram", "Close/Remove Diagram"};
+    String[] editItems   = new String[] {"Undo", "Redo", "Cut", "Copy", "Paste", "Rotate Left", "Rotate Right", "Rename Diagram", "Delete Element"};
+    String[] viewItems   = new String[] {"Zoom In", "Zoom Out"};
+    String[] windowItems = new String[] {"Cascade Windows", "Tile Windows Vertically", "Tile Windows Horizontally", "Previous Window", "Next Window"};
+    String[] helpItems   = new String[] {"About"};
+
+    char[] fileMnemonics   = new char[] {'N', 'O', 'S', 'I', 'E', 'C'};
+    char[] editMnemonics   = new char[] {'U', 'R', 'C', 'Y', 'P', 'L', 'R', 'n', 'D'};
+    char[] viewMnemonics   = new char[] {'I', 'O'};
+    char[] windowMnemonics = new char[] {'C', 'V', 'H', 'P', 'N'};
+    char[] helpMnemonics   = new char[] {'A'};
+
+
     // Create all menus
     for (int i = 0; i < menus.length; i++)
     {
       JMenu menu = new JMenu(menus[i]);
-      menu.setMnemonic(menuMnemonics[i]);
+      menu.setMnemonic(mnemonics[i]);
       menuArray[i] = menu;
     }
 
@@ -111,10 +112,10 @@ public class MenuBar extends JMenuBar
     for (int i = 0; i < helpItems.length; i++)
     {
       ImageIcon icon = new ImageIcon("images/Top Panel/" + helpItems[i] + ".jpg");
-      NewGraphyAboutAction action = new NewGraphyAboutAction(icon);    
+      NewGraphyAboutAction action = new NewGraphyAboutAction(icon);
       KeyStroke keyStroke = KeyStroke.getKeyStroke("control A");
       JMenuItem item = new JMenuItem(action);
-      item.setAccelerator(keyStroke);      
+      item.setAccelerator(keyStroke);
       menuArray[4].add(item);
     }
 

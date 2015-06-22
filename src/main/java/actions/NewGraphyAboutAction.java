@@ -9,12 +9,10 @@ import javax.swing.ImageIcon;
 
 public class NewGraphyAboutAction extends AbstractAction
 {
-  private Integer mnemonic = new Integer('A');
-
   public NewGraphyAboutAction(ImageIcon icon)
   {
     super("About", icon);
-    putValue(MNEMONIC_KEY, mnemonic);
+    putValue(MNEMONIC_KEY, new Integer('A'));
   }
 
   public void actionPerformed(ActionEvent e)

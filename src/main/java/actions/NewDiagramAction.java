@@ -7,12 +7,10 @@ import gui.*;
 
 public class NewDiagramAction extends AbstractAction
 {
-  private Integer mnemonic = new Integer('N');
-
   public NewDiagramAction(ImageIcon icon)
   {
     super("New Diagram", icon);
-    putValue(MNEMONIC_KEY, mnemonic);
+    putValue(MNEMONIC_KEY, new Integer('N'));
   }
 
   public void actionPerformed(ActionEvent e)

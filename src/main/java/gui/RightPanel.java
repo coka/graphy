@@ -1,36 +1,10 @@
 package gui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
-import javax.swing.JToolBar;
-import java.awt.Dimension;
-
-import javax.swing.BorderFactory;
-import java.awt.BorderLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
-import javax.swing.SwingConstants;
-
-import actions.PlaceholderAction;
-
-import actions.RectangleStateAction;
-import actions.TriangleStateAction;
-import actions.StarStateAction;
-import actions.HexagonStateAction;
-import actions.OutlineRectangleStateAction;
-import actions.OutlineTriangleStateAction;
-import actions.OutlineStarStateAction;
-import actions.OutlineHexagonStateAction;
-import actions.SelectStateAction;
-import actions.ColorPickerAction;
-
-import java.net.URL;
+import actions.*;
 
 public class RightPanel extends JPanel implements ActionListener
 {

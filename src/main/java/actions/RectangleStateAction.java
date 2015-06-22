@@ -5,8 +5,6 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import gui.*;
-import models.*;
-import views.*;
 import controllers.*;
 
 public class RectangleStateAction extends AbstractAction

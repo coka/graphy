@@ -7,12 +7,10 @@ import gui.*;
 
 public class TileWindowsVerticallyAction extends AbstractAction
 {
-  private Integer mnemonic = new Integer('V');
-
   public TileWindowsVerticallyAction(ImageIcon icon)
   {
     super("Tile Windows Vertically", icon);
-    putValue(MNEMONIC_KEY, mnemonic);
+    putValue(MNEMONIC_KEY, new Integer('V'));
   }
 
   public void actionPerformed(ActionEvent e)

@@ -2,18 +2,10 @@ package views;
 
 import java.util.*;
 import java.awt.*;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.InputEvent;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-import java.awt.geom.Point2D;
-
+import java.awt.event.*;
 import javax.swing.*;
 
-import org.w3c.dom.views.DocumentView;
-
 import shapes.*;
-import helpers.*;
 
 public class GraphicsView extends JComponent
 {
@@ -78,22 +70,22 @@ public class GraphicsView extends JComponent
 	  
 		if(e.getAdjustable().getOrientation()==Adjustable.HORIZONTAL){
 			if(hScrollValue<e.getValue()){
-				translateX+=(double)((e.getValue()-hScrollValue)*(-translateFactor))/scaling;
+				translateX += ((e.getValue()-hScrollValue)*(-translateFactor))/scaling;
 				//transformation.translate((double)((e.getValue()-hScrollValue)*(-translateFactor))/transformation.getScaleX(), 0);
 
 			}
 			else{
-				translateX+=(double)((e.getValue()-hScrollValue)*(-translateFactor))/scaling;							
+				translateX += ((e.getValue()-hScrollValue)*(-translateFactor))/scaling;
 			}
 			hScrollValue=e.getValue();
 			
 		}
 		else{
 			if(vScrollValue<e.getValue()){			
-				translateY+=(double)((e.getValue()-vScrollValue)*(-translateFactor))/scaling;
+				translateY += ((e.getValue()-vScrollValue)*(-translateFactor))/scaling;
 			}
 			else{
-				translateY+=(double)((e.getValue()-vScrollValue)*(-translateFactor))/scaling;
+				translateY += ((e.getValue()-vScrollValue)*(-translateFactor))/scaling;
 			}
 			vScrollValue=e.getValue();
 		}

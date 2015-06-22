@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -110,6 +109,7 @@ public class DocumentController
     });
 }
 
+public DocumentModel get_model() { return this.model; }
 public DocumentView get_view() { return this.view; }
 
 public void set_rectangleState() { this.stateManager.set_rectangleState(); }

@@ -7,12 +7,10 @@ import gui.*;
 
 public class CascadeWindowsAction extends AbstractAction
 {
-  private Integer mnemonic = new Integer('C');
-
   public CascadeWindowsAction(ImageIcon icon)
   {
     super("Cascade Windows", icon);
-    putValue(MNEMONIC_KEY, mnemonic);
+    putValue(MNEMONIC_KEY, new Integer('C'));
   }
 
   public void actionPerformed(ActionEvent e)

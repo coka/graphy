@@ -1,21 +1,10 @@
 package views;
 
-import java.awt.BorderLayout;
-import java.awt.event.InputEvent;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-
-import javax.swing.JInternalFrame;
-import javax.swing.JScrollBar;
+import java.awt.*;
+import javax.swing.*;
 
 public class DocumentView extends JInternalFrame
 {
-  private JScrollBar sbVertical;
-  private JScrollBar sbHorizontal;
-
-  public int hScrollValue=140;
-  public int vScrollValue=140; 
-
   private GraphicsView context = new GraphicsView();
 
   public DocumentView()
@@ -25,12 +14,12 @@ public class DocumentView extends JInternalFrame
     this.add(this.context);
     this.setVisible(true);
 
-    sbHorizontal=new JScrollBar(JScrollBar.HORIZONTAL, 140, 20, 0, 300);
-    sbVertical=new JScrollBar(JScrollBar.VERTICAL, 140, 20, 0, 300);
+    JScrollBar sbHorizontal = new JScrollBar(JScrollBar.HORIZONTAL, 140, 20, 0, 300);
+    JScrollBar sbVertical   = new JScrollBar(JScrollBar.VERTICAL  , 140, 20, 0, 300);
 
-    this.add(sbHorizontal,BorderLayout.SOUTH);
-    this.add(sbVertical,BorderLayout.EAST);
-    
+    this.add(sbHorizontal, BorderLayout.SOUTH);
+    this.add(sbVertical  , BorderLayout.EAST );
+
   }
 
   public GraphicsView get_context() { return this.context; }

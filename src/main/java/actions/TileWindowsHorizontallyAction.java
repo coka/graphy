@@ -7,12 +7,10 @@ import gui.*;
 
 public class TileWindowsHorizontallyAction extends AbstractAction
 {
-  private Integer mnemonic = new Integer('H');
-
   public TileWindowsHorizontallyAction(ImageIcon icon)
   {
     super("Tile Windows Horizontally", icon);
-    putValue(MNEMONIC_KEY, mnemonic);
+    putValue(MNEMONIC_KEY, new Integer('H'));
   }
 
   public void actionPerformed(ActionEvent e)
