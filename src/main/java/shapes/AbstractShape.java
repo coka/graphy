@@ -56,36 +56,35 @@ public abstract class AbstractShape
 
   public void draw_handles(Graphics2D context)
   {
-    float w = this.size * 0.5f;
-    float h = this.size * 0.5f;
+    float hs = this.size * 0.5f; // shape half-size
     float s = 4.0f; // handle half-size
 
     context.setColor(Color.BLACK);
 
     Rectangle2D.Float handle = new Rectangle2D.Float(0.0f, 0.0f, s * 2.0f, s * 2.0f);
 
-    handle.y = -s;
-    handle.x = -s;
+    handle.x = 0.0f - hs - s;
+    handle.y = 0.0f - hs - s;
     context.fill(handle);
-    handle.x += w;
+    handle.x += hs;
     context.fill(handle);
-    handle.x += w;
+    handle.x += hs;
     context.fill(handle);
 
-    handle.y += h;
-    handle.x = -s;
+    handle.x = 0.0f - hs - s;
+    handle.y += hs;
     context.fill(handle);
-    handle.x += w;
+    handle.x += hs;
     // don't draw the center point
-    handle.x += w;
+    handle.x += hs;
     context.fill(handle);
 
-    handle.y += h;
-    handle.x = -s;
+    handle.x = 0.0f - hs - s;
+    handle.y += hs;
     context.fill(handle);
-    handle.x += w;
+    handle.x += hs;
     context.fill(handle);
-    handle.x += w;
+    handle.x += hs;
     context.setColor(Color.RED); // for debugging 90-degree rotation
     context.fill(handle);
   }
