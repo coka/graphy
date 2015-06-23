@@ -1,3 +1,8 @@
 package states;
 
-public class State {}
+import java.awt.event.MouseEvent;
+
+public class State
+{
+  public void mouse_pressed(MouseEvent e) {}
+}
