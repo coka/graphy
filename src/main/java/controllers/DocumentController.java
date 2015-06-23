@@ -26,12 +26,18 @@ public class DocumentController
   {
     this.view.get_context().addMouseListener(new MouseAdapter() {
       @Override
-      public void mouseClicked(MouseEvent e)
+      public void mousePressed(MouseEvent e)
       {
         if (e.getButton() == MouseEvent.BUTTON1)
         {
           stateManager.get_currentState().mouse_pressed(e);
         }
+      }
+
+      @Override
+      public void mouseReleased(MouseEvent e)
+      {
+        stateManager.get_currentState().mouse_released(e);
       }
     });
     this.view.get_context().addMouseMotionListener(new MouseMotionAdapter() {
@@ -62,4 +68,6 @@ public class DocumentController
   public void set_outlineHexagonState() { this.stateManager.set_outlineHexagonState(); }
 
   public void set_selectState() { this.stateManager.set_selectState(); }
+  public void set_moveState() { this.stateManager.set_moveState(); }
+  public void set_resizeState() { this.stateManager.set_resizeState(); }
 }

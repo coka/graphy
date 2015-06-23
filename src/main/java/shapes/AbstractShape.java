@@ -95,6 +95,7 @@ public abstract class AbstractShape
 
     context.translate(this.get_position().x, this.get_position().y);
     context.rotate(this.get_rotation(), this.get_size() * 0.5f, this.get_size() * 0.5f);
+    context.scale(this.get_scale(), this.get_scale());
 
     if (this.get_fill() != null)
     {

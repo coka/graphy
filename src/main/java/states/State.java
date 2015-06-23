@@ -9,6 +9,7 @@ import controllers.*;
 public class State
 {
   public void mouse_pressed(MouseEvent e) {}
+  public void mouse_released(MouseEvent e) {}
   public void mouse_dragged(MouseEvent e) {}
   public void mouse_moved  (MouseEvent e)
   {

@@ -189,4 +189,13 @@ public class GraphicsView extends JComponent
         for (int i = 0; i < this.shapes.size(); i++) { this.shapes.get(i).set_selected(false); }
           this.repaint();
       }
+
+      public boolean has_selected()
+      {
+        for (int i = 0; i < this.shapes.size(); i++)
+        {
+          if (this.shapes.get(i).get_isSelected()) { return true; }
+        }
+        return false;
+      }
     }

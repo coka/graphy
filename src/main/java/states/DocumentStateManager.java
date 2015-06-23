@@ -7,6 +7,8 @@ public class DocumentStateManager
   private State currentState;
 
   private SelectState selectState;
+  private MoveState moveState;
+  private ResizeState resizeState;
 
   private RectangleState rectangleState;
   private TriangleState triangleState;
@@ -21,6 +23,8 @@ public class DocumentStateManager
   public DocumentStateManager(DocumentController mediator)
   {
     selectState = new SelectState();
+    moveState = new MoveState();
+    resizeState = new ResizeState();
 
     rectangleState = new RectangleState();
     triangleState = new TriangleState();
@@ -38,6 +42,8 @@ public class DocumentStateManager
   public State get_currentState() { return this.currentState; }
 
   public void set_selectState() { this.currentState = this.selectState; }
+  public void set_moveState() { this.currentState = this.moveState; }
+  public void set_resizeState() { this.currentState = this.resizeState; }
 
   public void set_rectangleState() { this.currentState = this.rectangleState; }
   public void set_triangleState() { this.currentState = this.triangleState; }
