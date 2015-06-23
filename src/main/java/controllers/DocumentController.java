@@ -40,6 +40,11 @@ public class DocumentController
       {
          stateManager.get_currentState().mouse_dragged(e);
       }
+      @Override
+      public void mouseMoved(MouseEvent e)
+      {
+         stateManager.get_currentState().mouse_moved(e);
+      }
     });
   }
 

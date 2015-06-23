@@ -13,6 +13,7 @@ public class MainWindow extends JFrame
   public static WorkspaceView centerPanel = new WorkspaceView();
   public WorkspaceModel workspaceModel = new WorkspaceModel();
   public WorkspaceController workspaceController = new WorkspaceController(workspaceModel, centerPanel);
+  private StatusBarController statusBar = new StatusBarController(new StatusBarModel(), new StatusBarView());
 
   public static MainWindow get_instance()
   {
@@ -37,7 +38,7 @@ public class MainWindow extends JFrame
     this.setJMenuBar(new MenuBar());
     this.add(new TopPanel(), BorderLayout.NORTH);
     this.add(new RightPanel(), BorderLayout.EAST);
-    this.add(new BottomPanel(800, 600), BorderLayout.SOUTH);
+    this.add(this.statusBar.get_view(), BorderLayout.SOUTH);
     this.add(new LeftPanel(), BorderLayout.WEST);
     this.add(this.centerPanel, BorderLayout.CENTER);
     this.setVisible(true);
@@ -52,5 +53,12 @@ public class MainWindow extends JFrame
   public static void main(String[] args)
   {
     MainWindow window = MainWindow.get_instance();
+  }
+
+  public DocumentController temp() { return MainWindow.get_instance().workspaceController.get_model().get_documents().get(0); }
+  public void update_status_bar()
+  {
+    DocumentModel dm = this.temp().get_model();
+    statusBar.set_position(dm.get_mx(), dm.get_my());
   }
 }
