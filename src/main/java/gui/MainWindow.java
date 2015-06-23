@@ -3,7 +3,6 @@ package gui;
 import java.awt.*;
 import javax.swing.*;
 
-import gui.window.listener.GraphyWindowListener;
 import models.*;
 import views.*;
 import controllers.*;
@@ -48,5 +47,10 @@ public class MainWindow extends JFrame
     this.setIconImage(img.getImage());
 
     addWindowListener(new GraphyWindowListener());
+  }
+
+  public static void main(String[] args)
+  {
+    MainWindow window = MainWindow.get_instance();
   }
 }

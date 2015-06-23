@@ -1,11 +1,9 @@
 package views;
 
-import graphy.extra.windows.DiagramRename;
-import graphy.extra.windows.GraphyAbout;
-import graphy.extra.windows.ColorPicker;
-
 import java.awt.*;
 import javax.swing.*;
+
+import gui.*;
 
 public class WorkspaceView extends JDesktopPane
 {

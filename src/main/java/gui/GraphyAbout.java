@@ -1,17 +1,8 @@
-package graphy.extra.windows;
+package gui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class GraphyAbout extends JDialog{
 
