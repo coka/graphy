@@ -20,8 +20,7 @@ public class SelectState extends State
       for (int i = 0; i < g.get_shapes().size(); i++)
       {
         AbstractShape currentShape = g.get_shapes().get(i);
-        if (currentShape.get_shape().contains(e.getX() - currentShape.get_position().x + currentShape.get_size() * 0.5f,
-            e.getY() - currentShape.get_position().y + currentShape.get_size() * 0.5f))
+        if (currentShape.get_shape().contains(e.getX() - currentShape.get_position().x, e.getY() - currentShape.get_position().y))
         {
           if (missedEverything) { missedEverything = false; }
           g.clear_selection();
@@ -36,9 +35,10 @@ public class SelectState extends State
       for (int i = 0; i < g.get_shapes().size(); i++)
       {
         AbstractShape currentShape = g.get_shapes().get(i);
-        if (currentShape.get_shape().contains(e.getX() - currentShape.get_position().x + currentShape.get_size() * 0.5f,
-            e.getY() - currentShape.get_position().y + currentShape.get_size() * 0.5f))
+        if (currentShape.get_shape().contains(e.getX() - currentShape.get_position().x, e.getY() - currentShape.get_position().y))
+        {
           { mem = i; }
+        }
       }
       if (mem != -1) { g.toggle_selected_at(mem); }
     }
