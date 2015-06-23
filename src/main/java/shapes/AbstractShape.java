@@ -10,14 +10,14 @@ public abstract class AbstractShape
   private Vec2f position;
   private float rotation;
   private float scale   ;
-  private Vec2f size    ;
+  private float size    ;
   private Color stroke  ;
   private Color fill    ;
   private boolean isSelected = false;
 
   private Shape shape = new GeneralPath();
 
-  public AbstractShape(Vec2f position, Vec2f size)
+  public AbstractShape(Vec2f position, float size)
   {
     this.position = position   ;
     this.rotation = 0.0f       ;
@@ -27,7 +27,7 @@ public abstract class AbstractShape
     this.fill     = null       ;
   }
 
-  public AbstractShape(Vec2f position, Vec2f size, Color stroke, Color fill)
+  public AbstractShape(Vec2f position, float size, Color stroke, Color fill)
   {
     this.position = position   ;
     this.rotation = 0.0f       ;
@@ -40,7 +40,7 @@ public abstract class AbstractShape
   public Vec2f get_position() { return this.position; }
   public float get_rotation() { return this.rotation; }
   public float get_scale   () { return this.scale   ; }
-  public Vec2f get_size    () { return this.size    ; }
+  public float get_size    () { return this.size    ; }
   public Color get_stroke  () { return this.stroke  ; }
   public Color get_fill    () { return this.fill    ; }
   public Shape get_shape   () { return this.shape   ; }
@@ -56,8 +56,8 @@ public abstract class AbstractShape
 
   public void draw_handles(Graphics2D context)
   {
-    float w = this.size.x * 0.5f;
-    float h = this.size.y * 0.5f;
+    float w = this.size * 0.5f;
+    float h = this.size * 0.5f;
     float s = 4.0f; // handle half-size
 
     context.setColor(Color.BLACK);
@@ -92,6 +92,11 @@ public abstract class AbstractShape
 
   public void draw(Graphics2D context)
   {
+    AffineTransform oldTransform = context.getTransform();
+
+    context.translate(this.get_position().x, this.get_position().y);
+    context.rotate(this.get_rotation(), this.get_size() * 0.5f, this.get_size() * 0.5f);
+
     if (this.get_fill() != null)
     {
       context.setColor(this.get_fill());
@@ -100,5 +105,7 @@ public abstract class AbstractShape
     context.setColor(this.get_stroke());
     context.draw(this.get_shape());
     if (this.get_isSelected()) { this.draw_handles(context); }
+
+    context.setTransform(oldTransform);
   }
 }
