@@ -34,6 +34,13 @@ public class DocumentController
         }
       }
     });
+    this.view.get_context().addMouseMotionListener(new MouseMotionAdapter() {
+      @Override
+      public void mouseDragged(MouseEvent e)
+      {
+         stateManager.get_currentState().mouse_dragged(e);
+      }
+    });
   }
 
   public DocumentModel get_model() { return this.model; }
